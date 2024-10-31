@@ -1,0 +1,126 @@
+Spring Framework
+----------------
+- The Spring Framework is one of the most popular, powerful, and widely used frameworks for 
+  building Java applications.
+- It provides a comprehensive programming and configuration model designed to simplify the 
+  development of enterprise applications.
+- Spring is an open-source and lightweight framework, meaning it has a small footprint and 
+  can be easily integrated into various environments without significant overhead.
+- Spring is often referred to as a "framework of frameworks" because it provides a base framework
+  that integrates and supports other frameworks and technologies, such as Hibernate for ORM, 
+  Spring MVC for web applications, and Spring Boot for rapid application development.
+- The framework was developed by Rod Johnson in 2003 and has since evolved into a robust ecosystem 
+  with a large community contributing to its growth and capabilities.
+
+
+1. Overview of Spring Framework
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+● Purpose: 
+    - The Spring Framework was developed to address the complexity of enterprise Java development 
+      and to provide a consistent programming model that promotes good software design.
+
+● Core Features: 
+    - Dependency Injection (DI), Aspect-Oriented Programming (AOP), transaction management, and 
+      support for building web applications.
+
+
+2. Key Features
+~~~~~~~~~~~~~~~
+● Inversion of Control (IoC): 
+    - The core principle of Spring, where the control of object creation and management is inverted
+      from the application to the Spring container.
+
+● Dependency Injection (DI): 
+    - Promotes loose coupling by injecting dependencies into a class rather than the class creating 
+      them itself. 
+    - This can be done via constructor injection, setter injection, or method injection.
+
+● Aspect-Oriented Programming (AOP): 
+    - Supports cross-cutting concerns like logging, security, and transactions, allowing you to 
+      separate these concerns from business logic.
+
+● Transaction Management: 
+    - Provides a consistent programming model for transaction management that can be used across 
+      different types of transactional resources (e.g., databases, message queues).
+
+● Spring MVC: 
+    - A powerful web framework that supports the Model-View-Controller design pattern for building web 
+      applications.
+
+● Spring Boot: 
+    - A project that simplifies the setup of Spring applications by providing pre-configured defaults, 
+      embedded servers, and auto-configuration.
+
+
+3. Core Modules
+~~~~~~~~~~~~~~~
+● Core Container: 
+    - Contains the core functionalities like IoC and DI. Key components include:
+        ○ Beans: Central to the IoC container, defines and manages the lifecycle of beans.
+        ○ Core: Basic functionality and configuration.
+        ○ Context: A way to access application objects and provides an extension of the BeanFactory.
+
+● AOP Module: 
+    - Provides support for aspect-oriented programming, allowing the separation of cross-cutting concerns.
+
+● Data Access/Integration: 
+    - Offers support for JDBC, ORM frameworks (like Hibernate), and transaction management.
+
+● Web Module: 
+    - Provides features for building web applications, including Spring MVC.
+
+● Security: 
+    - Offers comprehensive security features for authentication, authorization, and protecting web 
+      applications.
+
+
+4. Configuration Styles
+~~~~~~~~~~~~~~~~~~~~~~~
+● XML Configuration: 
+    - Traditional method of configuring Spring applications using XML files.
+● Java Configuration: 
+    - Using @Configuration classes with annotations to define beans and their dependencies.
+● Annotation-Based Configuration: 
+    - Simplifies bean creation and configuration using annotations such as @Component, @Service, 
+      @Repository, and @Controller.
+
+
+5. Common Annotations
+~~~~~~~~~~~~~~~~~~~~~
+● @Autowired: Used for dependency injection.
+● @Component: Indicates a Spring-managed component.
+● @Service: Stereotype for service layer components.
+● @Repository: Indicates a DAO component.
+● @Controller: Marks a class as a Spring MVC controller.
+● @RequestMapping: Maps HTTP requests to handler methods.
+● @Transactional: Specifies that a method or class is transactional.
+
+
+6. Spring Boot
+~~~~~~~~~~~~~~
+● Purpose: Provides a simplified way to set up and develop new Spring applications.
+● Features:
+    ○ Auto-configuration of Spring applications.
+    ○ Embedded servers (like Tomcat, Jetty).
+    ○ Spring Boot Starter dependencies for easy dependency management.
+    ○ Spring Boot Actuator for monitoring and managing applications.
+
+
+7. Advantages of Using Spring Framework
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+● Modularity: Applications can be developed in a modular way, promoting separation of concerns.
+● Testability: Makes unit testing easier due to dependency injection.
+● Flexibility: Allows developers to use only the parts they need.
+● Community Support: A large ecosystem and strong community provide ample resources and 
+                     third-party libraries.
+
+
+8. Common Interview Questions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+What is the difference between Spring and Spring Boot?
+Explain Dependency Injection and its advantages.
+What are the different types of bean scopes in Spring?
+How does Spring manage transactions?
+Explain the concept of Aspect-Oriented Programming (AOP).
+What are the advantages of using Spring MVC for web applications?
+How do you handle exceptions in a Spring MVC application?
