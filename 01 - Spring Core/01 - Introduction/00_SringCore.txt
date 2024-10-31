@@ -1,0 +1,57 @@
+Spring Core
+-----------
+- Spring Core is the foundational module of the Spring Framework that provides the 
+  essential features of dependency injection (DI) and inversion of control (IoC). 
+- It enables developers to manage application components and their dependencies in 
+  a more flexible and modular way, promoting loose coupling and easier testability.
+
+■ Key Concepts
+--------------
+● Inversion of Control (IoC):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- IoC is a design principle in which the control of object creation and management is 
+  transferred from the application code to a container (Spring).
+- Achieved through Dependency Injection (DI), where dependencies are provided to a 
+  class rather than the class creating them.
+
+● Dependency Injection (DI):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- A technique used to achieve IoC.
+- Spring supports DI through constructor injection, setter injection, and method injection.
+- Promotes loose coupling and easier testing.
+
+● Beans:
+~~~~~~~~
+- Objects that are instantiated, assembled, and managed by the Spring IoC container.
+- Defined in a configuration file (XML or Java-based).
+- Managed by the Spring container with lifecycle management.
+
+● Application Context:
+~~~~~~~~~~~~~~~~~~~~~~
+- A central interface for providing configuration information to an application.
+- It is a more advanced version of the BeanFactory.
+- Provides additional functionalities like event propagation, AOP integration, etc.
+
+● Bean Scopes:
+~~~~~~~~~~~~~~
+- Define the lifecycle and visibility of beans:
+    ○ Singleton: One shared instance per Spring IoC container.
+    ○ Prototype: A new instance each time a bean is requested.
+    ○  Other scopes include request, session, application, etc.
+
+● Configuration:
+~~~~~~~~~~~~~~~~
+- Spring beans can be configured using XML, annotations, or Java configuration classes.
+- Annotations such as @Component, @Autowired, @Configuration, and @Bean simplify the 
+  configuration process.
+
+● Aspect-Oriented Programming (AOP):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- A key feature of Spring that allows separation of cross-cutting concerns (like logging, 
+  security, etc.) from business logic.
+- Aspects, join points, and advice are fundamental concepts in AOP.
+
+● Spring Expression Language (SpEL):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- A powerful expression language that supports querying and manipulating objects at runtime.
+- Used for accessing properties, calling methods, and performing computations.
