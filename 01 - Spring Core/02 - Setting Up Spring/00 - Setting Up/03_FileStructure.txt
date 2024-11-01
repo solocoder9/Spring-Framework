@@ -1,0 +1,36 @@
+Directory Structure for Spring Maven Project
+-------------------------------------------- 
+
+MavenProject
+│
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── com
+│   │   │       └── example
+│   │   │           ├── App.java
+│   │   │           ├── config
+│   │   │           │   └── AppConfig.java      // Configuration classes
+│   │   │           ├── dao
+│   │   │           │   └── YourEntityDao.java  // Data Access Object classes
+│   │   │           ├── model
+│   │   │           │   └── YourEntity.java      // Entity classes
+│   │   │           └── service
+│   │   │               └── YourService.java      // Service classes
+│   │   │
+│   │   └── resources
+│   │       ├── application.properties             // Application configuration
+│   │       └── templates
+│   │           └── yourTemplate.html             // HTML templates
+│   │
+│   └── test
+│       └── java
+│           └── com
+│               └── example
+│                   ├── AppTest.java              // Main application tests
+│                   ├── dao
+│                   │   └── YourEntityDaoTest.java // DAO tests
+│                   └── service
+│                       └── YourServiceTest.java   // Service tests
+│
+└── pom.xml
