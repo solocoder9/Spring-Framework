@@ -1,0 +1,25 @@
+Setting Up Spring with Maven (Eclipse IDE)
+------------------------------------------
+Step 1: Create a Maven Project
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+● In the wizard, select "Maven Project", then click "Next"
+
+Step 2: Select Archetype
+~~~~~~~~~~~~~~~~~~~~~~~~
+● In "Catalogs," select "Internal."
+● In the "Filter" box, type 'quickstart'.
+● Select the 'maven-archetype-quickstart' artifact ID, then click "Next".
+
+Step 3: Project Name
+~~~~~~~~~~~~~~~~~~~~
+● Enter the Group Id (Identifier for the project).
+    Example: com.test
+● Enter the Artifact Id (Project name).
+    Example: MavenProject
+● Enter the Package name.
+    Example: com.test
+● Click "Finish."
+
+Step 4: Additional
+~~~~~~~~~~~~~~~~~~
+● Type 'y' in the console window, if prompted to download and build the project.
