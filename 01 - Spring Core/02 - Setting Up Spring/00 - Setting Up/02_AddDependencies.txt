@@ -1,0 +1,38 @@
+Add Dependencies / Configure pom.xml
+------------------------------------
+1. Add Spring Core Dependency
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Official MVN Repository link : https://mvnrepository.com/artifact/org.springframework/spring-core
+- Go to the link, select appropriate version for your project, and copy the dependency.
+- Paste it inside the '<dependencies>' tag in you 'pom.xml' file 
+- Example - 
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-core</artifactId>
+		<version>6.1.6</version>
+	</dependency>
+
+2. Add Spring Context Dependency
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Official MVN Repository link: https://mvnrepository.com/artifact/org.springframework/spring-context
+- Go to the link, select the version that matches your MySQL version, and copy the dependency.
+- Paste it inside the <dependencies> tag in your pom.xml file.
+- Example - 
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context</artifactId>
+		<version>6.1.6</version>
+	</dependency>
+
+3. Add JUnit Dependency (Optional)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Official MVN Repository link: https://mvnrepository.com/artifact/junit/junit
+- Go to the link, select the latest version, and copy the dependency.
+- Paste it inside the `<dependencies>` tag in your `pom.xml` file.
+- Example - 
+    <dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>4.13.2</version>
+		<scope>test</scope>
+	</dependency>
