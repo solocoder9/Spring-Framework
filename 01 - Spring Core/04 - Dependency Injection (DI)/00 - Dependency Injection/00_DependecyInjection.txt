@@ -1,0 +1,39 @@
+Dependency Injection (DI)
+-------------------------
+- Dependency Injection ia a design pattern where an objects's dependencies (the objects it
+  needs to function) are supplied externally rather than the object creating them itself.
+- This pattern is part of the larger concept of Inversion of Control(IoC), where the control
+  of creating and managing dependencies is given to an external container (e.g., the Spring
+  IoC container) instead of being managed directly within the class.
+
+Why we use DI? / Advantages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+● Loose Coupling: 
+  - Classes become less dependent on concrete implementations, promoting flexibility and making 
+    it easier to modify or replace dependencies without changing the class.
+● Testability: 
+  - Since dependencies are injected, it's easier to mock or stub them during unit testing, 
+    improving the testability of your code.
+● Reusability: 
+  - With DI, components can be reused with different dependencies, making the code more modular.
+● Better Maintenance: 
+  - As classes focus only on their primary responsibility, their dependencies can be managed and 
+    configured externally. This makes the code more maintainable and adaptable to changes.
+
+How It Works in Spring
+~~~~~~~~~~~~~~~~~~~~~~
+- In Spring, the IoC (Inversion of Control) container manages DI.
+- It automatically wires the necessary components (beans) for a class.
+- The class doesn't create dependencies; instead, Spring injects them.
+
+Types of Dependency Injection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  1. Constructor Injection
+  2. Setter Injection
+  3. Field Injection
+
+Spring Annotation for DI
+~~~~~~~~~~~~~~~~~~~~~~~~
+● @Autowired: Automatically injects a dependency.
+● @Qualifier: Used to disambiguate when multiple beans are available.
+
