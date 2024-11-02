@@ -1,0 +1,66 @@
+Types of Dependency Injection
+-----------------------------
+1. Constructor Injection:
+~~~~~~~~~~~~~~~~~~~~~~~~~
+- Dependencies are injected through the constructor of a class.
+- It's the most preferred type as it ensured that dependencies are injected when the object
+  is created, making the object immutable.
+- Example:
+    @Component
+    public class ServiceA {
+      private final ServiceB serviceB;
+    
+      // Dependency is injected via the constructor
+      @Autowired
+      public ServiceA(ServiceB serviceB) {
+        this.serviceB = serviceB;
+      }
+    }
+
+  ○ Benefits:
+    - Makes the class immutable.
+    - Ensures all dependencies are provided upfront.
+    - Best suited for mandatory dependencies.
+
+
+2. Setter Injection:
+~~~~~~~~~~~~~~~~~~~~
+- Dependencies are injected through the setter methods.
+- Useful for optional dependencies.
+- Example:
+    @Component
+    public class ServiceA {
+      private ServiceB serviceB;
+
+      // Dependency is injected via setter method
+      @Autowired
+      public void setServiceB(ServiceB serviceB) {
+        this.serviceB = serviceB;
+      }
+    }
+
+    ○ Benefits:
+      - Allows setting optional dependencies.
+      - Provides flexibility as dependencies can be set or changed later.
+
+    ○ Drawbacks:
+      - Could lead to incomplete initialization if the setter is not called.
+
+
+3. Field Injection:
+~~~~~~~~~~~~~~~~~~~
+- Dependencies are injected directly into the fields using @Autowired.
+- Simplifies code but not recommended for complex applications as it reduces testability.
+- Example: 
+    @Component
+    public class ServiceA {
+      @Autowired
+      private ServiceB serviceB;
+    }
+
+  ○ Benefits:
+    - Simplicity in code as there's no need for constructors or setters.
+    
+  ○ Drawbacks:
+    - Harder to test because dependencies are private and cannot be mocked easily.
+    - Can lead to issues with immutability and lifecycle management.
