@@ -1,0 +1,58 @@
+Inversion of Control (IoC) in Spring
+------------------------------------
+- Inversion of Control (IoC) is a design principle used to reduce coupling between
+  components in system.
+- In the context of Spring Framework, Ioc refers to the way that the control of 
+  object creation and management is inverted from the application code to the Spring 
+  container.
+- Basically, IoC is a container that is responsible for instantiating, configuring, 
+  and managing the lifecycle of application objects (beans), allowing for greater 
+  modularity and easier testing.
+
+Key Concepts:
+~~~~~~~~~~~~~
+1. Control Flow:
+    - In traditional programming, the application code controls the flow of execution, 
+      including object creation and lifecycle management.
+    - With IoC, the control is inverted: the Spring container takes over this 
+      responsibility. This allow the more modular and flexible code.
+
+2. Dependency Injection (DI):
+    - The most common form of IoC in Spring is Dependency Injection.
+    - DI allows the Spring container to inject dependencies into objects(beans) rather 
+      than the objects creating their own dependencies.
+    - This can be done through:
+        ● Constructor Injection
+        ● Setter Injection
+        ● Value Injection
+
+3. Loose Coupling:
+    - By utilizing IoC and DI, components are loosely coupled. This means that classes
+      do not need to know about the concrete implementations of their dependencies.
+    - They depend on abstractions (interfaces), making the system more flexible and 
+      easier to test.
+
+4. Configuration:
+    - Spring allows configuration of beans using XML, annotation, or Java-based configuration.
+
+5. Lifecycle Management:
+    - The Spring container manages the lifecycle of beans, handling their creation, 
+      initialization, and destruction.
+    - This is particularly beneficial of the resource management.
+
+6. AOP integration
+    - IoC in Spring also facilitates Aspect-Oriented Programming (AOP), enabling cross-cutting
+      concerns (like logging, security) to be modularized.
+
+
+Benefits of IoC in Spring:
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+● Testability:
+    - Easier to write unit tests by allowing mocks or stubs to be injected.
+
+● Maintainability:
+    - Changes in one component require fewer changes in other due to loose coupling.
+
+● Reusability:
+    - Components can be reused more easily because they rely on interfaces rather than concrete
+      class.
