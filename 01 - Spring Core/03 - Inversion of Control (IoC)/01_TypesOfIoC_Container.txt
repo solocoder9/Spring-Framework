@@ -1,0 +1,42 @@
+Types of Inversion of Control (IoC) Container in Spring
+-------------------------------------------------------
+1. BeanFactory
+~~~~~~~~~~~~~~
+- The simplest container, 'BeanFactory, is responsible for instantiation, configuring,
+  and managing beans.
+- It uses a lazy-loading approach, meaning it creates beans only when they are requested.
+- It is suitable for lightweight applications where memory consumption is concern, and 
+  not all beans need to be loaded at startup.
+- Example: 
+    ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+    MyBean myBean = (MyBean) context.getBean("myBean");
+
+● Characteristics:
+    ○ Lazy initialization: Beans are created only when they are needed.
+    ○ Less resource-intensive compared to ApplicationContext.
+    ○ Limited features compared to ApplicationContext (e.g., no event propagation, 
+      internationalization).
+ 
+
+2. ApplicationContext
+~~~~~~~~~~~~~~~~~~~~~
+- A more advanced container, 'ApplicationContext' builds on 'BeanFactory' add adds several 
+  features like event propagation, internationalization, and support for AOP (Aspect-
+  Oriented Programming).
+- Recommended for most applications because it provides more features and a more complete
+  IoC solution.
+- Example:
+    ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+
+● Characteristics:
+    ○ Eager initialization: By default, all singleton beans are created at startup.
+    ○ Supports more advanced features like AOP, events, and internationalization.
+    ○ Provides built-in support for different bean scopes (singleton, prototype, etc.).
+
+
+
+
+Summary
+-------
+● BeanFactory: Lightweight, lazy initialization, limited features. Use for simple applications.
+● ApplicationContext: Full-featured, eager initialization, recommended for most applications.
