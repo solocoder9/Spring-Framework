@@ -1,0 +1,44 @@
+Annotations in Spring for Dependency Injection
+----------------------------------------------
+● @Autowired:
+~~~~~~~~~~~~~
+- Marks a constructor, setter, or field to be automatically injected with a dependency by Spring.
+- Works with constructors, setters, or directly with fields.
+
+● @Qualifier:
+~~~~~~~~~~~~~
+- Used to resolve ambiguity when multiple beans of the same type exist.
+- It allows you to specify which specific bean should be injected.
+- Example:
+    @Autowired
+    @Qualifier("specificServiceB")
+    private ServiceB serviceB;
+
+● @Component:
+~~~~~~~~~~~~~
+- Marks a class as a Spring-managed bean. Spring will automatically create instances of this class
+  and manage its lifecycle.
+
+● @ComponentScan:
+~~~~~~~~~~~~~~~~~
+- Tells Spring where to look for classes annotated with @Component, @Service, @Repository, or 
+  @Controller, so that Spring can create and inject them where needed.
+
+
+
+
+Key Differences Between Annotations
+-----------------------------------
++--------------+-----------------------------------+--------------------+-------------------------------+
+| Annotation   | Purpose                           | Injection Type     | Additional Attributes         |
++--------------+-----------------------------------+--------------------+-------------------------------+
+| @Autowired   | Autowires Spring beans            | By Type            | required                      |
++--------------+-----------------------------------+--------------------+-------------------------------+
+| @Qualifier   | Resolves ambiguity                | By Name            | Works with @Autowired         |
++--------------+-----------------------------------+--------------------+-------------------------------+
+| @Primary     | Sets a default bean candidate     | By Type            | Works without @Qualifier      |
++--------------+-----------------------------------+--------------------+-------------------------------+
+| @Resource    | JSR-250 autowiring by name/type   | By Name/Type       | name, type                    |
++--------------+-----------------------------------+--------------------+-------------------------------+
+| @Inject      | JSR-330 autowiring by type        | By Type            | No required attribute         |
++--------------+-----------------------------------+--------------------+-------------------------------+
