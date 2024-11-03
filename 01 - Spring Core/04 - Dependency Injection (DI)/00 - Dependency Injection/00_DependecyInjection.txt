@@ -1,10 +1,15 @@
 Dependency Injection (DI)
 -------------------------
-- Dependency Injection ia a design pattern where an objects's dependencies (the objects it
-  needs to function) are supplied externally rather than the object creating them itself.
-- This pattern is part of the larger concept of Inversion of Control(IoC), where the control
-  of creating and managing dependencies is given to an external container (e.g., the Spring
-  IoC container) instead of being managed directly within the class.
+- Dependency Injection ia a design pattern in which an objects's dependencies (the objects it
+  needs to function) are provided to it from an external source, rather than being created
+  internally.
+- This approach enhances modularity and testability by allowing for easier substitution of 
+  dependencies (e.g., mocks in testing).
+- DI is a key component of Inversion of Control (IoC), where the responsibility for managing 
+  the lifecycle and instantiation of dependencies is transferred to an external container (such
+  as the Spring IoC container).
+- By decoupling the creation of dependencies from their usage, DI promotes a more flexible and
+  maintainable architecture.
 
 Why we use DI? / Advantages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
