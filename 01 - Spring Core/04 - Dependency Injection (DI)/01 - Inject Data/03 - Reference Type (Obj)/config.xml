@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Bean definition for Course -->
+    <bean class="com.test.entities.Course" id="course1">
+        <property name="courseID" value="C101" />
+        <property name="courseName" value="Introduction to Programming" />
+    </bean>
+
+    <bean class="com.test.entities.Course" id="course2">
+        <property name="courseID" value="C102" />
+        <property name="courseName" value="Data Structures" />
+    </bean>
+
+    <!-- Bean definitions for Student entities, injecting Course reference -->
+    <bean class="com.test.entities.Student" id="student1">
+        <property name="studentID" value="101" />
+        <property name="studentName" value="Charlie" />
+        <property name="course" ref="course1" />
+    </bean>
+
+    <bean class="com.test.entities.Student" id="student2">
+        <property name="studentID" value="102" />
+        <property name="studentName" value="Justin" />
+        <property name="course" ref="course2" />
+    </bean>
+
+</beans>
