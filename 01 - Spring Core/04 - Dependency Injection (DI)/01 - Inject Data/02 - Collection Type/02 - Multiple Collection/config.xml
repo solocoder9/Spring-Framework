@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Bean definitions for Student entities, injecting multiple collection types -->
+    <bean class="com.test.entities.Student" id="student1">
+        <property name="studentID" value="101" />
+        <property name="studentName" value="Charlie" />
+
+        <property name="studentEmails">
+            <list>
+                <value>charlie15@gmail.com</value>
+                <value>charlie16@gmail.com</value>
+                <value>charlie17@gmail.com</value>
+            </list>
+        </property>
+
+        <property name="studentCourses">
+            <set>
+                <value>Math</value>
+                <value>Science</value>
+                <value>History</value>
+            </set>
+        </property>
+
+        <property name="studentGrades">
+            <map>
+                <entry>
+                    <key>
+                        <value>Math</value>
+                    </key>
+                    <value>95</value>
+                </entry>
+                <entry>
+                    <key>
+                        <value>Science</value>
+                    </key>
+                    <value>89</value>
+                </entry>
+                <entry>
+                    <key>
+                        <value>History</value>
+                    </key>
+                    <value>92</value>
+                </entry>
+            </map>
+        </property>
+
+        <property name="studentProperties">
+            <props>
+                <prop key="nickname">Charlie</prop>
+                <prop key="hobby">Reading</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean class="com.test.entities.Student" id="student2">
+        <property name="studentID" value="102" />
+        <property name="studentName" value="Justin" />
+
+        <property name="studentEmails">
+            <list>
+                <value>justin99@gmail.com</value>
+                <value>justin100@gmail.com</value>
+            </list>
+        </property>
+
+        <property name="studentCourses">
+            <set>
+                <value>English</value>
+                <value>Biology</value>
+            </set>
+        </property>
+
+        <property name="studentGrades">
+            <map>
+                <entry>
+                    <key>
+                        <value>English</value>
+                    </key>
+                    <value>88</value>
+                </entry>
+                <entry>
+                    <key>
+                        <value>Biology</value>
+                    </key>
+                    <value>90</value>
+                </entry>
+            </map>
+        </property>
+
+        <property name="studentProperties">
+            <props>
+                <prop key="nickname">Jay</prop>
+                <prop key="hobby">Gaming</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>
