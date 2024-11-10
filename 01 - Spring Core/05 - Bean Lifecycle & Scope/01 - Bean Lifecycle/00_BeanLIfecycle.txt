@@ -1,0 +1,91 @@
+Spring Bean Lifecycle
+---------------------
+- In spring, a bean is an object that is instantiated, assembled, and managed by the Spring
+  IoC (Inversion of Control) container.
+- The lifecycle of a Spring bean encompasses several phases, from its creation to its 
+  destruction.
+
+
+Phases of Bean lifecycle
+------------------------
+1. Bean Definition
+~~~~~~~~~~~~~~~~~~
+- Before a bean can be instantiated, it needs to be defined in a Spring configuration file
+  (XML, Java Config, or annotations).
+- this definition includes the bean's class, scope, initialization method, destruction method,
+  and any dependencies.
+
+2. Bean Instantiation
+~~~~~~~~~~~~~~~~~~~~~
+- Once the application context is created, the Spring container instantiates the bean.
+- This can happen through:
+    ● Default constructor: The container calls the no-argument constructor.
+    ● Static factory method: The container can use a static method to create the bean instance.
+
+3. Dependency Injection
+~~~~~~~~~~~~~~~~~~~~~~~
+- After the bean is instantiated, the container performs dependency injection, injecting any 
+  required dependencies (other beans, values, etc.) into the newly created bean.
+- This can be done vie:
+    ● Constructor Injection: Dependencies are provided through the constructor.
+    ● Setter Injection: Dependencies are set through setter methods.
+
+4. Bean Post-Processors
+~~~~~~~~~~~~~~~~~~~~~~~
+- Spring allows for customization ot the beans through BeanPostProcessor.
+- Two important methods are invoked during this stage:
+    ● postProcessBeforeInitialization: 
+        - This method allows for modification of the bean before its initialization.
+    ● postProcessAfterInitialization: 
+        - This method allows for modification after the bean is initialized.
+
+5. Initialization
+~~~~~~~~~~~~~~~~~
+- If the bean implements the 'InitializingBean' interface, its 'afterPropertiesSet()' method 
+  is called.
+- Additionally, if a custom initialization method is defined in the bean's configuration, it will
+  also be called at this stage.
+
+6. Ready for Use
+~~~~~~~~~~~~~~~~
+- Once initialization is completed, the bean is ready for use by the application. 
+- This is the phase where the bean can perform its intended functionality.
+
+7. Destruction
+~~~~~~~~~~~~~~
+- When the application context is closed, the Spring container destroy the bean. 
+- If the bean implements the 'DisposableBean' interface, its 'destroy()' method will be called.
+- Additionally, any custom destroy methods defined int the configuration will be executed.
+
+
+■ Detailed Lifecycle Phases
+---------------------------
+1. Instantiation:
+~~~~~~~~~~~~~~~~~
+- Container creates a new instance of the bean.
+
+2. Populate Properties:
+~~~~~~~~~~~~~~~~~~~~~~~
+- Container injects the dependencies.
+
+3. Bean Post-Process Before Initialization:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- postProcessBeforeInitialization() method is called.
+
+4. Initialization:
+~~~~~~~~~~~~~~~~~
+- afterPropertiesSet() (if implementing InitializingBean) or custom init method is called.
+
+5. Bean Post-Process After Initialization:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- postProcessAfterInitialization() method is called.
+
+6. Ready for Use:
+~~~~~~~~~~~~~~~~
+- The bean is now fully initialized and ready for use.
+
+7. Destruction:
+~~~~~~~~~~~~~~~
+- Custom destroy method (if defined) is called.
+- destroy() method (if implementing DisposableBean) is called.
+
