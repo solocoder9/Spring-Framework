@@ -1,0 +1,61 @@
+Essential Spring Autowiring annotations
+---------------------------------------
+1. @Autowired
+~~~~~~~~~~~~~
+- Automatically injects dependencies by type.
+- Can be used on fields, constructor, and setters.
+- Optional 'required' attribute(true by default) allows handling missing dependencies.
+- Example:
+    @Autowired
+    private ServiceB serviceB;
+
+2. @Qualifier
+~~~~~~~~~~~~~~
+- Resolves ambiguity when multiple beans of the same type are present.
+- Used with @Autowired to specify the exact bean to inject.
+- Example:
+    @Autowired
+    @Qualifier("serviceB1")
+    private ServiceB serviceB;
+
+3. @Primary
+~~~~~~~~~~~
+- Marks a bean as the default choice when multiple beans of the same type are available.
+- Effective unless overridden by @Qualifier.
+- Example:
+    @Primary
+    @Component
+    public class DefaultServiceB implements ServiceB {
+        // codes
+    }
+
+4. @Resource (JSR-250)
+~~~~~~~~~~~~~~~~~~~~~~
+- Injects beans by name (default) or by type, compatible with Java standards.
+- Useful for integration with non-Spring components.
+- Example:
+    @Resource(name = "serviceB")
+    private ServiceB serviceB;
+
+5. @Inject (JSR-330)
+~~~~~~~~~~~~~~~~~~~~
+- Standard Java dependency injection by type, similar to @Autowired.
+- Lacks 'required' attribute, making it simpler but less flexible than @Autowired.
+
+
+
+Key Differences Between Annotations
+-----------------------------------
++--------------+-----------------------------------+--------------------+-------------------------------+
+| Annotation   | Purpose                           | Injection Type     | Additional Attributes         |
++--------------+-----------------------------------+--------------------+-------------------------------+
+| @Autowired   | Autowires Spring beans            | By Type            | required                      |
++--------------+-----------------------------------+--------------------+-------------------------------+
+| @Qualifier   | Resolves ambiguity                | By Name            | Works with @Autowired         |
++--------------+-----------------------------------+--------------------+-------------------------------+
+| @Primary     | Sets a default bean candidate     | By Type            | Works without @Qualifier      |
++--------------+-----------------------------------+--------------------+-------------------------------+
+| @Resource    | JSR-250 autowiring by name/type   | By Name/Type       | name, type                    |
++--------------+-----------------------------------+--------------------+-------------------------------+
+| @Inject      | JSR-330 autowiring by type        | By Type            | No required attribute         |
++--------------+-----------------------------------+--------------------+-------------------------------+
