@@ -1,0 +1,124 @@
+Ways to Implement Bean Lifecycle
+---------------------------------
+
+
+1. Using Interface
+------------------
+a> 'InitializingBean' Interface
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Implement the 'afterPropertiesSet() method to define custom initialization logic.
+- Example: 
+    public class MyBean implements InitializingBean {
+        @Override
+        public void afterPropertiesSet() {
+            // Custom initialization logic
+        }
+    }
+
+b> 'DisposableBean' Interface
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Implement the 'destroy()' method to define custom destruction logic.
+- Example: 
+    public class MyBean implements DisposableBean {
+        @Override
+        public void destroy() {
+            // Cleanup logic
+        }
+    }
+
+
+2. Using Annotations (Most Preferable)
+--------------------------------------
+a> @PostConstruct Annotation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Mark a method with @PostConstruct for initialization logic that should run after 
+  dependency injection.
+- Example:
+    public class MyBean {
+        @PostConstruct
+        public void init() {
+            // Initialization logic
+        }
+    }
+
+b> @PreDestroy Annotation
+~~~~~~~~~~~~~~~~~~~~~~~~~
+- Mark a method with @PreDestroy for cleanup logic that should before the bean is 
+  destroyed.
+- Example: 
+    public class MyBean {
+        @PreDestroy
+        public void cleanup() {
+            // Cleanup logic
+        }
+    }
+
+
+3. Using XML Configuration
+--------------------------
+a> Initialization and Destruction Methods
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Define initialization and destruction method in your XML configuration.
+- Example:
+    ● XML file 
+        <bean id="myBean" class="com.example.MyBean" 
+            init-method="initMethod" 
+            destroy-method="destroyMethod"/>
+
+    ● Java class
+        public class MyBean {
+            public void initMethod() {
+                // Initialization logic
+            }
+
+            public void destroyMethod() {
+                // Cleanup logic
+            }
+        }
+
+
+
+4. Using Custom Methods
+-----------------------
+a> Initialization
+~~~~~~~~~~~~~~~~~
+- Example:
+    public class MyBean {
+        public void customInit() {
+            // Custom initialization logic
+        }
+    }
+
+b> Destruction
+~~~~~~~~~~~~~~
+- Example:
+    public class MyBean {
+        public void customDestroy() {
+            // Custom cleanup logic
+        }
+    }
+
+
+
+
+Summary of Methods
+------------------
++------------------------+-----------------------------------------+
+| Implementation Method  |             Description                 |
++------------------------+-----------------------------------------+
+| InitializingBean       | Interface for initialization logic.     |
++------------------------+-----------------------------------------+
+| DisposableBean         | Interface for destruction logic.        |
++------------------------+-----------------------------------------+
+| @PostConstruct         | Annotation for initialization logic.    |
++------------------------+-----------------------------------------+
+| @PreDestroy            | Annotation for destruction logic.       |          
++------------------------+-----------------------------------------+
+| XML init-method        | Specifies an init method in XML config. |
++------------------------+-----------------------------------------+
+| XML destroy-method     | Specifies a destroy method in XML config.|
++------------------------+-----------------------------------------+
+| Custom methods         | Explicitly define and call custom methods for lifecycle. |
++------------------------+-----------------------------------------+
+
+
