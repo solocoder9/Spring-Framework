@@ -1,0 +1,30 @@
+Factory Method in Spring 
+------------------------
+- The Factory Method pattern in spring is a creational design pattern that allows for the 
+  creation of objects (beans) without specifying the exact class that will be created.
+- It promotes loose coupling and enhances flexibility in object management.
+
+Types of Factory Methods
+~~~~~~~~~~~~~~~~~~~~~~~~
+1. Static Factory Methods:
+    - Defined as static method in a class.
+    - useful for simple object creation without the need for an instance of the class.
+
+2. Instance Factory Methods:
+    - Defined in an instance of a class, allowing the factory to maintain state or 
+      configuration.
+    - Useful when more complex creation logic is needed.
+
+
+Benefits
+~~~~~~~~
+● Separation of Concerns: Keeps the creation logic separate from the business logic.
+● Flexibility: Allows for the creation of different types of objects based on configuration.
+● Lazy Initialization: Can instantiate objects only when needed, improving performance.
+● Testability: Simplifies testing by allowing mock objects to be created through factory methods.
+
+Use Cases
+~~~~~~~~~
+● When object creation involves complex logic or external configuration.
+● To manage the lifecycle of objects that require specific initialization.
+● When needing to return different implementations of an interface based on conditions.
