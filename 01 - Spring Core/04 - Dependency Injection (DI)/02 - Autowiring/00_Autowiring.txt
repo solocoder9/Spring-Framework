@@ -1,0 +1,53 @@
+Autowiring in Spring
+--------------------
+- Autowiring in Spring is a feature that allows Spring to automatically resolve and inject 
+  dependencies into beans, eliminating hte need for manual configuration.
+- This features promotes cleaner code and enhances the maintainability of applications by
+  allowing component to be loosely coupled.
+
+  
+■ Ways to Achieve Autowiring
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. By XML Configuration:
+    - Traditional method where beans and their dependencies are defined within XML configuration
+      files.
+    - Suitable for older applications but can be lengthy and harder to manage.
+
+2. By Annotation-based Configuration: 
+    - Modern approach using annotations like '@Autowired' to declare dependencies directly in 
+      the Java classes.
+    - More concise and integrated with code, facilitating easier refactoring and readability.
+
+
+■ Types of Autowiring Modes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. No (Default):
+    - If aurowiring is not specified, we must define all bean dependencies explicitly.
+    - Offers full control but increases the amount of code needed.
+
+2. ByType:
+    - Spring matches dependencies based on their types.
+    - If there is exactly one bean of the required type in the context, Spring injects it.
+    - If multiple beans of the same type are present, an exception is thrown unless the target
+      bean is marked as a '@Primary' candidate.
+
+3. ByName:
+    - Spring autowired beans by matching property names. 
+    - It searches for the bean with the same name as the property being autowired. 
+    - If found, it injects that bean; otherwise throws an error.
+
+4. Constructor:
+    - This mode works similarly to 'byType', but it applies only to constructor injection.
+    - It matches constructor arguments by their types.
+    - If there is a conflict (multiple beans of the same type), an exception is thrown unless 
+      a primary candidate is specified.
+
+5. Autodetect (deprecated):
+    - Spring attempts constructor-based injection first; if this fails, it falls back to byType.
+
+
+● How Autowiring Works
+~~~~~~~~~~~~~~~~~~~~~~
+- When Spring start, it scan configuration (either XML or annotated classes) to identify beans
+  and their dependencies. During the bean creation process, it checks for autowired properties
+  and attempts to resolve them based on the specified autowiring strategy.
