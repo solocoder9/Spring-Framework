@@ -1,0 +1,96 @@
+Bean Scope in Spring
+--------------------
+- In Spring, the scope of a bean defines the lifecycle and visibility of that bean in 
+  the application context.
+- It determines how and when a bean is created, how long it will exits, and how it can
+ be accessed. 
+
+
+■ Types of Bean Scopes
+~~~~~~~~~~~~~~~~~~~~~
+1. Singleton
+~~~~~~~~~~~~
+● Definition: 
+    - Only one instance of the bean is created per Spring IoC container.
+    - This instance is shared across all requests for that bean.
+● Lifecycle:
+    - The bean is created when the application context is initialized and destroyed 
+      when the context is closed. 
+● Use Case:
+    - Suitable for stateless beans or where shared state is desired, such a service classes.
+● Configuration:
+    <bean id="myBean" class="com.example.MyBean" scope="request"/>
+
+
+2. Prototype
+~~~~~~~~~~~~
+● Definition:
+    - A new instance of the bean is created every time it is requested from the container.
+● Lifecycle:
+    - The bean is created and initialized on each request and not managed by the Spring 
+      container after it is created (no destruction callback).
+● Use Cases:
+    - Ideal for stateful beans or when each request needs a unique instance.
+● Configuration:
+    <bean id="myBean" class="com.example.MyBean" scope="prototype"/>
+
+
+3. Request
+~~~~~~~~~~
+● Definition:
+    - A new instance of the bean is created for each HTTP request in a web application. 
+    - It is limited to the lifecycle of a singe HTTP request.
+● Lifecycle:
+    - The bean is created when a request is received and destroyed at end of the request.
+● Use Cases:
+    - Useful fo web applications where a bean is needed hold request-specific data.
+● Configuration:
+    <bean id="myBean" class="com.example.MyBean" scope="request"/>
+
+
+4. Session
+~~~~~~~~~~
+● Definition:
+    - A new instance of the bean is created for each HTTP session.
+    - This means the bean will be shared across multiple requests within the same session.
+● Lifecycle:
+    - The bean is created at the end beginning of the session and destroyed at the end of 
+      the session. 
+● Use Cases:
+    - Suitable for use-specific data that needs to be maintained across multiple requests
+      during a user's session.
+● Configuration:
+    <bean id="myBean" class="com.example.MyBean" scope="session"/>
+
+
+5. Global Session
+~~~~~~~~~~~~~~~~~
+● Definition:
+    - A new instance of the bean is created for global HTTP session.
+    - This is applicable in portlet applications.
+● Lifecycle:
+    - Similar to session scope, but it spans across global sessions.
+● Use Case:
+    - useful in portlet-based applications where multiple portlets can share global session
+      data.
+● Configuration:
+    <bean id="myBean" class="com.example.MyBean" scope="globalSession"/>
+
+
+
+Summery of Bean Scopes
+----------------------
++------------------+-----------------------+----------------------------------+--------------------------------------------+
+| Scope Type       | Instance per Request  | Lifecycle Management             | Use Case                                   |
++------------------+-----------------------+----------------------------------+--------------------------------------------+
+| Singleton        | 1                     | Managed by Spring                | Stateless service classes                  |
++------------------+-----------------------+----------------------------------+--------------------------------------------+
+| Prototype        | N                     | Not managed after creation       | Stateful beans, unique instances           |
++------------------+-----------------------+----------------------------------+--------------------------------------------+
+| Request          | 1 per HTTP request    | Managed during request           | Request-specific data in web applications  |
++------------------+-----------------------+----------------------------------+--------------------------------------------+
+| Session          | 1 per HTTP session    | Managed during session           | User-specific data across requests         |
++------------------+-----------------------+----------------------------------+--------------------------------------------+
+| Global Session   | 1 per global session  | Managed during global session    | Shared data in portlet applications        |
++------------------+-----------------------+----------------------------------+--------------------------------------------+
+
