@@ -1,0 +1,98 @@
+Spring Configuration
+--------------------
+- Spring Configuration refers to the way in which the Spring Framework manages the setup
+  and behavior of an application.
+- It is defines how beans (the objects that form the backbone of your application) are 
+  created, wired, and managed by the Spring container.
+- There are several approaches to configure a Spring application, including XML 
+  configuration, Java-based configuration, and annotation-based configuration.
+
+Types of Spring Configuration
+-----------------------------
+1. XML Configuration
+~~~~~~~~~~~~~~~~~~~~
+- Traditionally, Spring applications were configured using XML files.
+- The XML configuration files describe the beans, their properties, and their relationships.
+- Example:
+    <bean id="student" class="com.test.entities.Student">
+        <property name="studentName" value="Charlie"/>
+        <property name="studentEmail" value="charlie15@gmail.com"/>
+    </bean>
+
+● Advantages:
+    - Clear separation of configuration from code.
+    - Human-readable format.
+● Disadvantages:
+    - It's detailed and can become difficult to manage.
+    - Harder to refactor and manage in large application.
+
+
+2. Java-based Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Introduced in Spring 3.0, this approach uses Java classes annotated with '@Configuration 
+  to define beans and their dependencies.
+- Example:
+    @Configuration
+    public class AppConfig {
+        @Bean
+        public Student student() {
+            return new Student("Charlie", "charlie15@gmail.com");
+        }
+    }
+
+● Advantages:
+    - Type-safe and refactor-friendly.
+    - Easier to manage dependencies.
+● Disadvantages:
+    - Require understanding of Java annotations and structure.
+
+
+3. Annotation-based Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- In this approach, Spring uses annotations to define beans, their lifecycle, and their 
+  relationships directory in the code.
+- Example: 
+    @Component
+    public class Student {
+        private String studentName;
+        private String studentEmail;
+
+        @Autowired
+        public Student(String studentName, String studentEmail) {
+            this.studentName = studentName;
+            this.studentEmail = studentEmail;
+        }
+    }
+
+● Advantages:
+    - Reduce boilerplate code.
+    - Provides a more intuitive and less complex way to configure beans.
+● Disadvantages:
+    - Can become cluttered if too many annotations are used.
+    - Less explicit than XML configuration.
+
+
+Profile in Spring
+-----------------
+- Spring allows you to define different configurations for different environments 
+  (development, testing, production) using profile.
+- You can activate a profile in XML, Java, or through properties.
+- Example in XML:
+    <beans profile="dev">
+        <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+            <property name="driverClassName" value="org.h2.Driver"/>
+            ...
+        </bean>
+    </beans>
+
+- Example in Java:
+    @Configuration
+    @Profile("dev")
+    public class DevConfig {
+        @Bean
+        public DataSource dataSource() {
+            return new H2DataSource();
+        }
+    }
+
+
