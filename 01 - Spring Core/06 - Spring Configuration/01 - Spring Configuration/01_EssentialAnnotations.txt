@@ -1,0 +1,158 @@
+Key Annotations used for Spring Configuration
+---------------------------------------------
+
+■ Java Based Configuration
+--------------------------
+1. @Configuration
+~~~~~~~~~~~~~~~~~
+● Purpose:
+    - Indicates that the class can be used by the Spring IoC container as a source of bean
+      definitions.
+● Uses:
+    - Classes annotated with '@Configuration contain methods annotated with '@Bean', which
+      return an object that should be registered as a bean in the Spring application context.
+Example:
+    import org.springframework.context.annotation.Bean;
+    import org.springframework.context.annotation.Configuration;
+
+    @Configuration
+    public class AppConfig {
+        @Bean
+        public Student student() {
+            return new Student(101, "Charlie", "charlie15@gmail.com");
+        }
+    }
+
+
+2. @Bean
+~~~~~~~~
+● Purpose: 
+    - Indicates that a method produces a bean to be managed by the Spring container. 
+    - This annotation is used within a @Configuration class.
+● Usage: 
+    - Use @Bean to define a bean with custom instantiation logic, or when you need to configure 
+      the bean’s properties.
+Example:
+    @Bean
+    public Course course() {
+        return new Course("Mathematics", student()); // Injecting Student bean
+    }
+
+
+
+■ Annotation-Based Configuration
+--------------------------------
+3. @Component
+~~~~~~~~~~~~~
+● Purpose: 
+    - Indicates that a class is a Spring-managed component. This means that Spring will 
+      automatically detect it during classpath scanning and register it as a bean.
+● Usage: 
+    - Use @Component when you want to create a bean without explicitly defining it in a 
+      configuration class.
+Example:
+    import org.springframework.stereotype.Component;
+
+    @Component
+    public class Student {
+        // class definition
+    }
+
+
+4. @Service
+~~~~~~~~~~~
+● Purpose: 
+    - A specialization of @Component, used to mark a class as a service. 
+    - It typically contains business logic.
+● Usage: 
+    - Use @Service when you want to define a service layer bean.
+Example:
+    import org.springframework.stereotype.Service;
+
+    @Service
+    public class StudentService {
+        // business logic methods
+    }
+
+
+5. @Repository
+~~~~~~~~~~~~~~
+● Purpose: 
+    - A specialization of @Component, used to indicate that a class is a DAO (Data Access Object).
+● Usage: 
+    - Use @Repository when you are implementing data access logic.
+Example:
+    import org.springframework.stereotype.Repository;
+
+    @Repository
+    public class StudentRepository {
+        // data access methods
+    }
+
+
+6. @ComponentScan
+~~~~~~~~~~~~~~~~~
+● Purpose: 
+    - Instructs Spring to scan for components (annotated with @Component, @Service,
+      @Repository, etc.) in the specified base package.
+● Usage: 
+    - Use @ComponentScan to enable component scanning without defining each bean explicitly.
+Example:
+    import org.springframework.stereotype.Service;
+
+    @Service
+    public class StudentService {
+        // business logic methods
+    }
+
+
+7. @Autowired
+~~~~~~~~~~~~~
+● Purpose: 
+    - Allows Spring to resolve and inject collaborating beans into your bean. 
+    - It can be applied to constructors, methods, or fields.
+● Usage: 
+    - Use @Autowired to enable automatic dependency injection.
+Example:
+    import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.stereotype.Component;
+
+    @Component
+    public class Course {
+        private Student student;
+
+        @Autowired // Constructor injection
+        public Course(Student student) {
+            this.student = student;
+        }
+    }
+
+
+8. @Qualifier
+-------------
+● Purpose: 
+    - The @Qualifier annotation is used to specify which bean should be injected when there
+      are multiple candidates of the same type. 
+    - It helps resolve ambiguity in dependency injection.
+● Usage: 
+    - This annotation is typically used alongside @Autowired to indicate which specific bean 
+      to inject when multiple beans of the same type exist in the Spring context.
+Example:
+    @Component
+    public class StudentController {
+
+        private StudentService studentService;
+
+        // Using @Autowired and @Qualifier to specify which implementation to inject
+        @Autowired
+        public StudentController(@Qualifier("regularStudentService") StudentService studentService) {
+            this.studentService = studentService;
+        }
+    }
+
+
+
+
+
+
+
