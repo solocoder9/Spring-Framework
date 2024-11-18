@@ -1,0 +1,17 @@
+@Scope Annotation
+~~~~~~~~~~~~~~~~~
+● Purpose: 
+    - Defines the scope of a bean, indicating how long a bean should live and how it should 
+      be instantiated.
+● Usage: 
+    - Use @Scope to specify whether the bean should be a singleton, prototype, request, 
+      session, etc.
+Example:
+    import org.springframework.context.annotation.Scope;
+    import org.springframework.stereotype.Component;
+
+    @Component
+    @Scope("prototype") // New instance for each request
+    public class Student {
+        // class definition
+    }
