@@ -1,0 +1,59 @@
+Ways to Create Beans in Spring
+------------------------------
+- There are several ways to create beans in Spring. 
+- Some essential ways are:
+
+1. XML Configuration
+~~~~~~~~~~~~~~~~~~~~
+- Define beans in an XML file.
+- Example:
+    <bean id="myBean" class="com.example.MyBean" />
+
+2. Annotation-Based Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Use annotations to define beans in Java classes.
+- Key Annotations:
+    ● @Component
+    ● @Service
+    ● @Repository
+    ● @Controller
+- Example: 
+    @Component
+    public class MyBean { 
+
+    }
+
+3. Java-based Configuration with @Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Use a configuration class to explicitly define beans.
+- Example:
+    @Configuration
+    public class AppConfig {
+        @Bean
+        public MyBean myBean() {
+            return new MyBean();
+        }
+    }
+
+4. Component Scanning
+~~~~~~~~~~~~~~~~~~~~~
+- Automatically detects beans using annotations.
+- Example:
+    @Configuration
+    @ComponentScan(basePackages = "com.example")
+    public class AppConfig {
+
+    }
+
+5. Factory Method
+~~~~~~~~~~~~~~~~~
+- Use a static method in a class to crete a bean.
+- Example: 
+    public class MyBeanFactory {
+        public static MyBean createMyBean() {
+            return new MyBean();
+        }
+    }
+
+
+
