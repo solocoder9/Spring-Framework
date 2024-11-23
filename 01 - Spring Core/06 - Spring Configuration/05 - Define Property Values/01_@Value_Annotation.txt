@@ -1,0 +1,11 @@
+@Value Annotation in Spring Configuration
+-----------------------------------------
+● Purpose: 
+    - To inject external values (like strings, numbers, or properties) directly into 
+      Spring-managed beans.
+● Usage: 
+    - Helps in externalizing configuration, allowing you to change application behavior
+      without modifying the codebase.
+● Context: 
+    - Part of the Spring Configuration topic, facilitating the management of application 
+      properties and settings.
