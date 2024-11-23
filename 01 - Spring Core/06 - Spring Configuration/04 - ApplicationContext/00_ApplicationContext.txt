@@ -1,0 +1,48 @@
+ApplicationContext in Spring
+----------------------------
+- ApplicationContext is a central interface in the Spring Framework that provides configuration 
+  and access to the Spring IoC container.
+- It it responsible for instantiating, configuring, and assembling the beans defined in the 
+  application.
+
+
+Key Features of ApplicationContext
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. Bean Factory: 
+    - Extends BeanFactory capabilities, providing a more advanced container with support for 
+      various features like internationalization, event propagation, and declarative mechanisms 
+      to create a bean.
+
+2. Dependency Injection: 
+    - Manages the lifecycle of beans and handles their dependencies through dependency injection.
+
+3. Event Handling: 
+    - Supports a powerful event handling mechanism, allowing beans to listen for and publish events.
+
+4. Internationalization: 
+    - Provides support for internationalization (i18n) through message resource handling.
+
+5. Integration with Spring MVC: 
+    - Facilitates the use of the Spring MVC framework by providing necessary configurations.
+
+
+Types of ApplicationContext
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. ClassPathXmlApplicationContext: 
+    - Loads the context definition from an XML file located in the classpath.
+    - Example:
+        ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
+
+2. FileSystemXmlApplicationContext: 
+    - Loads the context definition from an XML file in the filesystem.
+    - Example:
+        ApplicationContext context = new FileSystemXmlApplicationContext("path/to/config.xml");
+
+3. AnnotationConfigApplicationContext: 
+    - Loads the context from Java-based configuration using annotations.
+    - Example:
+        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+
+
+
+
