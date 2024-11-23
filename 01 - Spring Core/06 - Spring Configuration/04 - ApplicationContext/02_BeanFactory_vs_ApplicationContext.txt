@@ -1,0 +1,22 @@
++-------------------------+---------------------------------------+----------------------------------------+
+| Feature                 | BeanFactory                           | ApplicationContext                     |
++-------------------------+---------------------------------------+----------------------------------------+
+| Initialization          | Lazy initialization of beans          | Eager initialization of singleton beans|
++-------------------------+---------------------------------------+----------------------------------------+
+| Functionality           | Basic container for bean management   | Advanced container with additional features |
++-------------------------+---------------------------------------+----------------------------------------+
+| Event Propagation       | No support for event propagation      | Supports event propagation and listeners|
++-------------------------+---------------------------------------+----------------------------------------+
+| AOP Support             | No built-in AOP support               | Full support for AOP (Aspect-Oriented Programming) |
++-------------------------+---------------------------------------+----------------------------------------+
+| Internationalization    | Not supported                         | Supports internationalization features |
++-------------------------+---------------------------------------+----------------------------------------+
+| Resource Loading        | Limited resource loading capabilities | Enhanced resource loading (e.g., messages, properties) |
++-------------------------+---------------------------------------+----------------------------------------+
+| Usage Scenario          | Suitable for lightweight applications | Preferred for most Spring applications |
++-------------------------+---------------------------------------+----------------------------------------+
+| Type of Bean Management | Primarily for singleton and prototype | Supports scopes like request, session, etc. |
++-------------------------+---------------------------------------+----------------------------------------+
+| Implementation Class    | XmlBeanFactory (deprecated)           | DefaultListableBeanFactory,            |
+|                         |                                       | AnnotationConfigApplicationContext, etc.|
++-------------------------+---------------------------------------+----------------------------------------+
