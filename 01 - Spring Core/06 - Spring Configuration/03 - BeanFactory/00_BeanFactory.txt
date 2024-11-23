@@ -1,0 +1,56 @@
+BeanFactory in Spring
+---------------------
+- In Spring, the BeanFactory is one of the core interface of the Spring IoC container.
+- It is responsible for instantiating, configuring, and managing beans in a Spring
+  application.
+
+
+Key Characteristics
+~~~~~~~~~~~~~~~~~~~
+● Lazy Initialization: 
+    - Beans are created only when requested. This can improve startup time but may delay 
+      the creation of beans until they are actually needed.
+
+● Lightweight: 
+    - BeanFactory has a smaller footprint compared to other containers like 
+      ApplicationContext, making it suitable for lightweight applications.
+
+Common Implementations
+~~~~~~~~~~~~~~~~~~~~~~
+● XmlBeanFactory: 
+    - An older implementation that reads bean definitions from XML files (deprecated in 
+      later versions of Spring).
+
+● DefaultListableBeanFactory: 
+    - The most commonly used implementation, providing full functionality for managing beans.
+
+
+Core Methods
+~~~~~~~~~~~~
+● getBean(String name): Retrieves a bean by its name.
+● getBean(Class<T> requiredType): Retrieves a bean by its type.
+● containsBean(String name): Checks if a bean with the specified name exists.
+● isSingleton(String name): Checks if the specified bean is a singleton.
+
+
+Example:
+~~~~~~~~
+● Java Class:
+
+    import org.springframework.beans.factory.BeanFactory;
+    import org.springframework.beans.factory.xml.XmlBeanFactory;
+    import org.springframework.core.io.ClassPathResource;
+
+    public class Main {
+        public static void main(String[] args) {
+            BeanFactory factory = new XmlBeanFactory(new ClassPathResource("beans.xml"));
+            MyBean myBean = (MyBean) factory.getBean("myBean");
+            myBean.doSomething();
+        }
+    }
+
+
+● Bean Definition & Configuration
+
+    <bean id="myBean" class="com.example.MyBean" />
+
