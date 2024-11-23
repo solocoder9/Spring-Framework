@@ -1,0 +1,23 @@
+getBean() Method
+------------------
+- The getBean() method is a part of the 'ApplicationContext' interface in Spring.
+- It is used to retrieve beans from the Spring IoC container, which is managed by the 
+  ApplicationContext.
+
+Types of getBean()
+-------------------
+1. Object getBean(String name)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Retrieves a bean by it name (ID) and returns it as an 'Object'. 
+- You may need to cast it to the appropriate type.
+- Example:
+    Student student = (Student) context.getBean("student");
+
+2. <T> T getBean(String name, Class<T> requiredType)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Retrieves a bean by its name and specifies the required type.
+- This allows for compile-time type checking, reducing the risk of 'ClassCastException'.
+- Example:
+    Student student = context.getBean("student", Student.class);
+
+
