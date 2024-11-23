@@ -1,0 +1,43 @@
+Ways to Define Property Values in Spring XML
+--------------------------------------------
+1. Using <value> Tag
+~~~~~~~~~~~~~~~~~~~~
+- Sets simple property values.
+- Example:
+    <property name="propertyName">
+        <value>propertyValue</value>
+    </property>
+
+2. Using value Attribute
+~~~~~~~~~~~~~~~~~~~~~~~~
+- Directly sets a simple property value using the value attribute of the <property> tag.
+- Example:
+    <property name="propertyName" value="propertyValue"/>
+
+3. Using p Namespace
+~~~~~~~~~~~~~~~~~~~~~
+- A shorthand way to set properties without explicitly using <property> tags. 
+- Requires the xmlns:p namespace declaration.
+- Example:
+    <bean id="student" class="com.test.entities.Student" p:propertyName="propertyValue"/>
+
+4. Using <constructor-arg> Tag
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Sets values through constructor arguments.
+- Example:
+    <bean id="student" class="com.test.entities.Student">
+        <constructor-arg value="101"/>
+        <constructor-arg value="Charlie"/>
+    </bean>
+
+5. Using <ref> Tag
+~~~~~~~~~~~~~~~~~~
+- References another bean.
+- Example:
+    <property name="propertyName">
+        <ref bean="anotherBeanId"/>
+    </property>
+
+
+
+
