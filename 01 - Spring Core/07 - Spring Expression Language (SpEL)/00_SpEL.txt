@@ -1,0 +1,82 @@
+Spring Expression Language (SpEL)
+---------------------------------
+- Spring Expression Language (SpEL) is a powerful expression language that is part of
+  the Spring Framework.
+- It allows you to query and manipulate objects at runtime, making it easier to configure
+  beans and perform operations in Spring applications.
+
+
+Key Features of SpEL
+~~~~~~~~~~~~~~~~~~~~
+● Expression Evaluation: 
+    - SpEL can evaluate expressions to retrieve properties, call methods, and perform 
+      operations on objects.
+
+● Dynamic Configuration: 
+    - It enables dynamic configuration of bean properties in XML or annotation-based 
+      configuration.
+
+● Type Safety: 
+    - SpEL supports type conversion, allowing it to automatically convert values to the
+      desired types during expression evaluation.
+
+● Support for Collections and Arrays: 
+    - SpEL can work with collections and arrays, allowing you to access and manipulate 
+      their elements easily.
+
+● Integration with Spring: 
+    - SpEL is integrated with various Spring features, including bean property configuration, 
+      method invocation, and security expressions.
+
+
+Syntax and Examples
+~~~~~~~~~~~~~~~~~~~
+● Basic Property access
+    - You can access bean properties using the (.) notation.
+    - Syntax:
+        #{beanName.propertyName}
+    - Example:
+        #{myBean.name}
+
+● Method Invocation
+    - You can call method on beans using the () operator.
+    - Syntax:
+        #{beanName.methodName()}
+    - Example:
+        #{myService.getValue()}
+
+● Conditional Expression
+    - You can use conditional expressions with the ternary operator(? :).
+    - Syntax:
+        #{condition ? trueValue : falseValue}
+    - Example:
+        #{myBean.active ? 'Active' : 'Inactive'}
+
+● Collection and Array Access
+    - You can access elements in collections and arrays using hte indexing operator ([]).
+    - Syntax:
+        #{myList[0]}
+    - Example:
+        #{myMap['key']}
+
+    
+Use Cases
+~~~~~~~~~
+● Bean Property Configuration: 
+    - Use SpEL in XML or Java-based configurations to dynamically set bean properties.
+    - Example:
+        <bean id="myBean" class="com.example.MyBean">
+            <property name="name" value="#{systemProperties['user.name']}" />
+        </bean>
+
+● Conditional Logic in Configuration: 
+    - Control bean instantiation or properties based on conditions.
+
+● Method Injection: 
+    - Call methods on other beans within the context of SpEL expressions.
+
+
+Performance
+~~~~~~~~~~~
+- SpEL provides caching mechanism for expression evaluations, improving performance when
+  the same expression are evaluated multiple times.
