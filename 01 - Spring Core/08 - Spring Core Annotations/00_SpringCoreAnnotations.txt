@@ -1,0 +1,52 @@
++-------------------------+---------------------------------------+---------------------------------------------------------------+
+| Annotation              | Purpose                               | Usage                                                         |
++-------------------------+---------------------------------------+---------------------------------------------------------------+
+| @Component              | Marks a class as a Spring component   | Used to create beans automatically.                           |
+|                         |                                       |                                                               |
++-------------------------+---------------------------------------+---------------------------------------------------------------+
+| @Service                | Specialization of @Component          | Used in the service layer to indicate service classes.        |
+|                         |                                       |                                                               |
++-------------------------+---------------------------------------+---------------------------------------------------------------+
+| @Repository             | Specialization of @Component          | Used in the data access layer to indicate DAO classes.        |
+|                         |                                       |                                                               |
++-------------------------+---------------------------------------+---------------------------------------------------------------+
+| @Controller             | Marks a class as a Spring MVC         | Handles web requests.                                         |
+|                         | controller                            |                                                               |
++-------------------------+---------------------------------------+---------------------------------------------------------------+
+| @Autowired              | Dependency injection                  | Automatically injects the required bean into a class.         |
+|                         |                                       |                                                               |
++-------------------------+---------------------------------------+---------------------------------------------------------------+
+| @Qualifier              | Specifies which bean to inject        | Used with @Autowired to resolve ambiguity when multiple beans |
+|                         | exist                                 |                                                               |
++-------------------------+---------------------------------------+---------------------------------------------------------------+
+| @Value                  | Injects values from properties        | Used to inject property values into fields.                   |
+|                         |                                       |                                                               |
++-------------------------+---------------------------------------+---------------------------------------------------------------+
+| @PostConstruct          | Method to be executed after bean      | Used for any setup after the bean is created.                 |
+|                         | initialization                        |                                                               |
++-------------------------+---------------------------------------+---------------------------------------------------------------+
+| @PreDestroy             | Method to be executed before bean     | Used for cleanup before the bean is destroyed.                |
+|                         | destruction                           |                                                               |
++-------------------------+---------------------------------------+---------------------------------------------------------------+
+| @Scope                  | Defines the scope of a bean           | Specifies singleton, prototype, etc.                          |
+|                         |                                       |                                                               |
++-------------------------+---------------------------------------+---------------------------------------------------------------+
+| @Configuration          | Indicates a class can be used by      | Used to define beans using Java config.                       |
+|                         | Spring IoC container as a source of   |                                                               |
+|                         | bean definitions                      |                                                               |
++-------------------------+---------------------------------------+---------------------------------------------------------------+
+| @Bean                   | Declares a bean in a configuration    | Used to define and configure a single bean.                   |
+|                         | class                                 |                                                               |
++-------------------------+---------------------------------------+---------------------------------------------------------------+
+| @ComponentScan          | Configures component scanning         | Used to specify base packages to scan for components.         |
+|                         |                                       |                                                               |
++-------------------------+---------------------------------------+---------------------------------------------------------------+
+| @PropertySource         | Specifies the location of properties  | Used to load properties from external files.                  |
+|                         | files                                 |                                                               |
++-------------------------+---------------------------------------+---------------------------------------------------------------+
+| @Aspect                 | Marks a class as an aspect            | Used in AOP for cross-cutting concerns.                       |
+|                         |                                       |                                                               |
++-------------------------+---------------------------------------+---------------------------------------------------------------+
+| @EnableAspectJAutoProxy | Enables support for handling          | Activates AspectJ support.                                    |
+|                         | components marked with @Aspect        |                                                               |
++-------------------------+---------------------------------------+---------------------------------------------------------------+
