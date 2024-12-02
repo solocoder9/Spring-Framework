@@ -1,0 +1,122 @@
+Spring MVC
+----------
+- Spring MVC (Model-View-Controller) is a framework within the Spring Framework for building
+  web applications.
+- It provides a robust architecture for developing scalable and maintainable web applications.
+- Basically, design for building flexible, loosely coupled, and testable web applications.
+- It provides a clear separation of concerns by dividing the application logic into three 
+  interconnected components: Model, View, and Controller.
+    Model: represents application data and business logic.
+    View: displays the data and captures user input.
+    Controller: processes user input, interacts with the model, and returns a view.
+
+
+■ Key Concepts
+--------------
+● Model-View-Controller (MVC)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ○ Model:
+        - Model represents the applications's data and business logic.
+        - It encapsulate data and retrieved from the database or other sources.
+
+    ○ View:
+        - View responsible for presenting hte model data to the user.
+        - Example: JSP, Thymeleaf, or HTML pages.
+
+    ○ Controller:
+        - Controller handles user input, interacts with the model, and selects the appropriate
+          view for rendering the response.
+
+● DispatcherServlet:
+~~~~~~~~~~~~~~~~~~~~
+- Acts as the front controller in Spring MVC.
+- Receives all incoming HTTP requests and delegates them to the appropriate handlers (controllers).
+- Configured in the web.xml or through Java-based configuration.
+- Plays a vital role in the request handling workflow.
+
+● HandlerMapping:
+~~~~~~~~~~~~~~~~~
+- Responsible for mapping incoming requests to their respective handler methods or controllers.
+- Can be customized using annotations like @RequestMapping, @GetMapping, etc.
+
+● View Resolver:
+~~~~~~~~~~~~~~~~
+- Resolves view names (returned by the controller) to actual view files (e.g., JSP files).
+- Example: InternalResourceViewResolver maps view names to JSP files located in specific directories.
+
+● ModelAndView:
+~~~~~~~~~~~~~~~
+- Combines model data and the view name.
+- The controller returns this object to represent both the data and the view to be rendered.
+
+
+■ Core Features
+---------------
+● Data Binding:
+~~~~~~~~~~~~~~~
+- Automatically binds HTTP request parameters to Java objects.
+- Done using @ModelAttribute in Spring MVC.
+- Simplifies form handling by mapping form fields to object properties.
+
+● Validation:
+~~~~~~~~~~~~~
+- Validates user inputs in forms using annotations like @Valid and @NotNull.
+- Uses Hibernate Validator or custom validators for field-level validation.
+
+● Exception Handling:
+~~~~~~~~~~~~~~~~~~~~~
+- Managed using @ExceptionHandler for controller-specific exceptions.
+- Use @ControllerAdvice for global exception handling across multiple controllers.
+
+● File Upload:
+~~~~~~~~~~~~~~
+- Supports multipart file uploads using MultipartResolver.
+- Enables developers to handle file uploads in web applications with ease.
+
+● Interceptors:
+~~~~~~~~~~~~~~~
+- Allow pre- and post-processing of requests and responses.
+- Implemented using HandlerInterceptor or HandlerInterceptorAdapter.
+
+
+■ Spring MVC Architecture
+-------------------------
+Request Handling Flow:
+1. DispatcherServlet intercepts the incoming HTTP request.
+2. HandlerMapping determines the correct controller for the request.
+3. The controller processes the request and interacts with the model layer for data.
+4. A ModelAndView object is returned by the controller.
+5. ViewResolver maps the logical view name to the actual view file.
+6. The view is rendered, and the response is sent back to the client.
+
+
+■ Common Annotations
+--------------------
+● @Controller: Marks a class as a Spring MVC controller.  
+● @RequestMapping: Maps HTTP requests to handler methods of MVC controllers.  
+● @GetMapping: A shortcut for `@RequestMapping(method = RequestMethod.GET)`,
+               used to map HTTP GET requests to handler methods.  
+● @PostMapping: A shortcut for `@RequestMapping(method = RequestMethod.POST)`, 
+                used to map HTTP POST requests to handler methods.  
+● @RequestParam: Binds a request parameter to a method parameter in the controller.  
+● @PathVariable: Binds a URI template variable to a method parameter.  
+● @ModelAttribute: Binds a method parameter or method return value to a model attribute.  
+● @ResponseBody: Indicates that the return value of a method should be written directly 
+                 to the HTTP response body.  
+● @RestController: A convenience annotation that combines `@Controller` and `@ResponseBody`, 
+                   typically used for RESTful services.  
+● @ExceptionHandler: Defines a method to handle exceptions thrown by handler methods.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
