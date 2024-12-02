@@ -1,0 +1,26 @@
+Add Dependencies / Configure pom.xml
+------------------------------------
+1. Add Spring Core Dependency
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Official MVN Repository link : https://mvnrepository.com/artifact/org.springframework/spring-webmvc
+- Go to the link, select appropriate version for your project, and copy the dependency.
+- Paste it inside the '<dependencies>' tag in you 'pom.xml' file 
+- Example - 
+	<dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-webmvc</artifactId>
+    	<version>5.3.23</version>
+	</dependency>
+
+2. Add JUnit Dependency (Optional)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Official MVN Repository link: https://mvnrepository.com/artifact/junit/junit
+- Go to the link, select the latest version, and copy the dependency.
+- Paste it inside the `<dependencies>` tag in your `pom.xml` file.
+- Example - 
+    <dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>4.13.2</version>
+		<scope>test</scope>
+	</dependency>
