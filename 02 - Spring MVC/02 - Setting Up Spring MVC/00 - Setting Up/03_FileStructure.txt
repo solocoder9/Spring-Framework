@@ -1,0 +1,42 @@
+Directory Structure for Spring MVC (Maven Project)
+--------------------------------------------------
+
+SpringMVCProject
+│
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── com
+│   │   │       └── example
+│   │   │           ├── App.java
+│   │   │           ├── config
+│   │   │           │   └── AppConfig.java           // Spring Configuration (Beans, DataSource, MVC Setup)
+│   │   │           ├── controller
+│   │   │           │   └── HomeController.java      // Spring MVC Controllers
+│   │   │           ├── dao
+│   │   │           │   └── YourEntityDao.java       // Data Access Object classes
+│   │   │           ├── model
+│   │   │           │   └── YourEntity.java          // Entity classes
+│   │   │           └── service
+│   │   │               └── YourService.java         // Service classes
+│   │   │
+│   │   ├── resources
+│   │   │   ├── application.properties               // Application configuration
+│   │   │   ├── messages.properties                 // Internationalization (i18n) messages
+│   │   │   ├── static                               // Static resources (JS, CSS, images)
+│   │   │   │   └── css
+│   │   │   │       └── style.css                   // Stylesheets
+│   │   │   │   └── js
+│   │   │   │       └── script.js                   // JavaScript files
+│   │   │   └── templates                           // HTML templates (If using Thymeleaf)
+│   │   │       └── home.html                       // Example Thymeleaf template
+│   │   │
+│   │   └── webapp
+│   │       ├── WEB-INF
+│   │       │   ├── views                           // View files (JSP, HTML, etc.)
+│   │       │   │   └── home.jsp                    // Example JSP template
+│   │       │   ├── spring-servlet.xml              // Spring MVC servlet configuration file
+│   │       │   └── web.xml                         // Traditional Spring MVC web.xml configuration
+│   │       ├── index.jsp                           // Root JSP page
+│   │
+└── pom.xml                                          // Maven build configuration
