@@ -21,9 +21,9 @@ SpringMVCProject
 │   │   │               └── YourService.java         // Service classes
 │   │   │
 │   │   ├── resources
-│   │   │   ├── application.properties               // Application configuration
+│   │   │   ├── application.properties              // Application configuration
 │   │   │   ├── messages.properties                 // Internationalization (i18n) messages
-│   │   │   ├── static                               // Static resources (JS, CSS, images)
+│   │   │   ├── static                              // Static resources (JS, CSS, images)
 │   │   │   │   └── css
 │   │   │   │       └── style.css                   // Stylesheets
 │   │   │   │   └── js
@@ -39,4 +39,4 @@ SpringMVCProject
 │   │       │   └── web.xml                         // Traditional Spring MVC web.xml configuration
 │   │       ├── index.jsp                           // Root JSP page
 │   │
-└── pom.xml                                          // Maven build configuration
+└── pom.xml                                         // Maven build configuration
