@@ -1,0 +1,71 @@
+Spring MVC Architecture
+------------------------
+- The Spring MVC Architecture is based on the Model-View-Controller (MVC) design pattern and
+  use the DispatcherServlet as the central component for request handling.
+
+1. DispatcherServlet (Front Controller)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- DispatcherServlet is the core component of Spring MVC, it acts as a front controller.
+- it receives all HTTP request and routes them to the appropriate controller for processing.
+- DispatcherServlet is configured in the 'web.xml' or through Java-based configuration.
+- Responsibilities:
+    - Request routing
+    - Delegating tasks to other components(e.g., controllers, view resolver)
+
+2. Handler Mapping
+~~~~~~~~~~~~~~~~~~
+- The Handler Mapping determines which controller method to invoke based on the request URL
+  or other mapping rules.
+- Example:
+    - @RequestMapping annotations or custom URL mappings.
+
+3. Controller 
+~~~~~~~~~~~~~
+- Controller handles the user requests(GET, POST, etc).
+- Process input, interacts with the business layer, and returns the response (often as a 
+  'ModelAndView' object).
+- Example:
+    @Controller
+    public class UserController {
+        @RequestMapping("/welcome")
+        public String welcome(Model model) {
+            model.addAttribute("message", "Hello, Spring MVC!");
+            return "welcome";
+        }
+    }
+
+4. Model
+~~~~~~~~
+- Model holds application data and business login.
+- Passed to the view to render the dynamic content.
+- Example:
+    model.addAttribute("user", new User("John", "Doe"));
+
+5. View Resolver
+~~~~~~~~~~~~~~~~
+- The View Resolver resolves the logical view name(e.g., "welcome") returned by the controller
+  to the actual view(e.g., a JSP file).
+- Example: Mapping "welcome" to '/WEB-INF/views/welcome.jsp'.
+
+6. View
+~~~~~~~
+- View represents the presentation layer that renders the UI based on the model data.
+- Example: JSP, Thymeleaf, FreeMarker.
+
+7. Interceptor (Optional) 
+~~~~~~~~~~~~~~~~~~~~~~~~~
+- Interceptor used for pre and post-processing of request (e.g., logging, security).
+- It configured in the application for additional request handling logic.
+
+
+■ Spring MVC Workflow
+---------------------
+1. Client Request: The user sends a request to the server (e.g., via a browser).
+2. DispatcherServlet: Receives the request and forwards it to the appropriate controller using 
+   HandlerMapping.
+3. Controller: Processes the request, interacts with the service/business layer, and prepares 
+   data in the form of a model.
+4. View Resolver: Resolves the logical view name returned by the controller to a physical view 
+   (e.g., JSP, Thymeleaf).
+5. View Rendering: The resolved view uses the model data to generate the response.
+6. Response: The response is sent back to the client.
