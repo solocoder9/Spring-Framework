@@ -1,0 +1,25 @@
+Key Steps to create a Spring MVC Project
+----------------------------------------
+
+1. Configure DispatcherServlet in web.xml
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Map the DispatcherServlet to a URL pattern (usually /).
+
+2. Create Spring Configuration (XML or Java-based)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Set up Spring configuration using either XML (dispatcher-servlet.xml) or Java-based 
+  configuration (@Configuration class with @EnableWebMvc).
+
+3. Configure View Resolver
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Configure a ViewResolver (e.g., InternalResourceViewResolver for JSP or ThymeleafViewResolver 
+  for Thymeleaf) to map logical view names to actual views.
+
+4. Create Controller
+~~~~~~~~~~~~~~~~~~~~
+- Define controller classes with @Controller and @RequestMapping annotations to handle web 
+  requests and return model data.
+
+5. Create a View to Display Data (JSP or Thymeleaf)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Create a JSP or Thymeleaf template to render and display the data returned by the controller.
