@@ -1,0 +1,2 @@
+Go through this link to learn JSP:
+https://github.com/solocoder9/Advanced-Java/tree/main/03%20-%20JSP
