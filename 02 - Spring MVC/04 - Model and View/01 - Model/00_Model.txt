@@ -1,0 +1,31 @@
+Model in Spring MVC
+-------------------
+- In Spring MVC, the Model is a fundamental concept in the Model-View-Controller (MVC) design
+  pattern.
+- It represents the data layer of an application and holds the data that will be displayed in
+  the view. 
+- The Model is responsible fo transferring data between the controller and the view, enabling
+  dynamic content rendering based on the data passed from the controller.
+
+■ Key Points
+------------
+● Role of Model:
+~~~~~~~~~~~~~~~~
+- The Model in Spring MVC is used to store data that the controller wants to pass to the view.
+  This could be any type of Java object (like a string, list, or custom object) that holds the 
+  application's data.
+- It acts as carrier or container for the data, which is ultimately rendered in the view (e.g.,
+  a JSP, Thymeleaf, etc).
+
+● Model Interface:
+~~~~~~~~~~~~~~~~~~
+- In Spring MVC, Model is an interface defined as 'org.springframework.ui.Model'. 
+- The Model interface provides methods to add attributes to the model, which can be later 
+  accessed in the view.
+
+● Model and View Interaction:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- The Model is the data holder passed from the controller to the view.
+- The view uses the dta in the model to render the user interface. 
+- A typical flow would be: Controller -> Model -> View, where the controller sends data to the 
+  model, which is then accessed by the view for rendering.
