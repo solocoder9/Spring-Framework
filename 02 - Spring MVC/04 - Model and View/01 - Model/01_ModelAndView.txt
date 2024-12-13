@@ -1,0 +1,21 @@
+ModelAndView in Spring MVC
+--------------------------
+- ModelAndView is a core concept in the Spring MVC that allows you to send both the model
+  data and the view name from the controller to the view in a single object.
+- It is a class that encapsulates both the model (data) and the view (presentation layer)
+  in a single return object, making it convenient to work with both in a controller method.
+
+■ Key Points
+------------
+● Why ModelAndView:
+~~~~~~~~~~~~~~~~~~~
+- ModelAndView provides a convenient way to pass both the model data and the view name 
+  together from the controller to the dispatcher servlet.
+- It is useful when you want to explicitly return a view name along with the data (e.g., 
+  when you're working wth custom views or need to provide both pieces of information 
+  together).
+
+●  How it works:
+~~~~~~~~~~~~~~~~
+- Create an instance of ModelAndView, add model data using the 'addObject()' method, and 
+  specify the view name using the 'setViewName()' method.
