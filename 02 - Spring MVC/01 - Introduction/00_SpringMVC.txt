@@ -20,7 +20,7 @@ Spring MVC
         - It encapsulate data and retrieved from the database or other sources.
 
     ○ View:
-        - View responsible for presenting hte model data to the user.
+        - View responsible for presenting the model data to the user.
         - Example: JSP, Thymeleaf, or HTML pages.
 
     ○ Controller:
