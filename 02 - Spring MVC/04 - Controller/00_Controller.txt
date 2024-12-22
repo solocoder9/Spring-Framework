@@ -41,7 +41,7 @@ Spring MVC Controller
     ○ PUT: Used for updating resources.
     ○ DELETE: Used to deleting resources.
 - Example:  
-    @RequestMapping("/home")   // Maps "/home" URL
+    @RequestMapping("/home")  // Maps "/home" URL
     public String home() {
         return "home";  // Returns the "home.jsp" view
     }
