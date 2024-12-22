@@ -1,0 +1,67 @@
+Spring MVC Controller
+---------------------
+- In Spring MVC, the Controller is a central component in the Model-View-Controller (MVC)
+  architecture.
+- It acts as the middle layer that handles incoming HTTP request, processes them, and returns
+  the appropriate response, typically by interacting with the Model and View.
+
+■ Key Concepts
+--------------
+● Controller:
+~~~~~~~~~~~~~
+- A controller is a Java class annotated with @Controller that handles HTTP request, processes
+  input, and returns a view or a response.
+- The controller acts as a bridge between the Model (business logic) and the View (UI).
+- It handles user input, calls the relevant services (if needed), and returns an appropriate 
+  view or response.
+- Basically, It defines methods that are mapped to specific URLs and HTTP methods using the 
+  @RequestMapping annotation.
+- Example:  
+    import org.springframework.stereotype.Controller;
+    import org.springframework.web.bind.annotation.RequestMapping;
+
+    @Controller
+    public class HomeController {
+
+        // Handles GET requests to "/home"
+        @RequestMapping("/home")
+        public String home() {
+            return "home";  // Returns the view name "home"
+        }
+    }
+
+● Request Mapping (@RequestMapping):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- @RequestMapping annotation is used to map HTTP request to handler methods of MVC controller.
+- It can be applied at the class or method level to specify the URL patterns and the HTTP 
+  method(GET, POST, etc) to handle.
+- HTTP methods:-
+    ○ GET (default): Used to retrieve data (typically used for GET request).
+    ○ POST: Used for creating or modifying resources (typically used for form submissions).
+    ○ PUT: Used for updating resources.
+    ○ DELETE: Used to deleting resources.
+- Example:  
+    @RequestMapping("/home")   // Maps "/home" URL
+    public String home() {
+        return "home";  // Returns the "home.jsp" view
+    }
+
+● Specialized Annotations for HTTP methods
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+○ @GetMapping: Shorthand for @RequestMapping(method = RequestMethod.GET)
+○ @PostMapping: Shorthand for @RequestMapping(method = RequestMethod.POST)
+○ @PutMapping: Shorthand for @RequestMapping(method = RequestMethod.PUT)
+○ @DeleteMapping: Shorthand for @RequestMapping(method = RequestMethod.DELETE)
+
+- Example:
+    @GetMapping("/home")
+    public String showHome() {
+        return "home";
+    }
+
+    @PostMapping("/createUser")
+    public String createUser(User user) {
+        // logic for creating user
+        return "redirect:/home";  // Redirects to home after user creation
+    }
+
