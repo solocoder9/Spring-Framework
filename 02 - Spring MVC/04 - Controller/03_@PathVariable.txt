@@ -1,0 +1,28 @@
+@PathVariable in Spring MVC
+---------------------------
+- @PathVariable ia an annotation in Spring MVC that is used to extract values fro the URI
+  (Uniform Resource Identifier) path in the URL.
+- It allows you to capture variables from the URL path and bind them directly to method 
+  parameters in the controller.
+
+Key Points:
+-----------
+● It is used to retrieve values embedded within the URL path.
+● Often used in REST APIs to extract parameters from the UrL for CRUD operations like GET,
+  POST, PUT, DELETE.
+● You can create dynamic URLs with placeholders that can be extracted using @PathVariable.
+
+Example:
+    // Handles requests to "/user/{id}" URL and retrieves the user with the given id
+    @RequestMapping("/user/{id}")
+    public String getUser(@PathVariable("id") String userId) {
+        // Use the extracted userId (from the URL) to fetch user details
+        System.out.println("User ID: " + userId); // For example, printing the userId
+        return "user"; // Returns the user view (assuming the view name is 'user')
+    }
+
+Example Explanation:
+- URL Pattern: /user/{id} is a dynamic URL where {id} is a placeholder for a variable.
+- @PathVariable("id"): This extracts the value of the id variable from the URL path and 
+  binds it to the method parameter userId.
+- For example, if the user visits /user/123, userId will be 123.
