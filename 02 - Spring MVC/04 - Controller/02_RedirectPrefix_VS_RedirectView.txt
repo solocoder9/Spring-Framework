@@ -1,0 +1,16 @@
++------------------------+-----------------------------+-------------------------------------------+
+|         Feature        |  Using `redirect:` Prefix   |          Using `RedirectView`             |
++------------------------+-----------------------------+-------------------------------------------+
+| Ease of Use            | Simple, concise             | Requires creating a RedirectView object   |
++------------------------+-----------------------------+-------------------------------------------+
+| Customization          | Limited customization       | Full customization (e.g., status code,    |
+|                        | (only URL)                  | headers)                                  |
++------------------------+-----------------------------+-------------------------------------------+
+| Use Case               | Simple redirects to a page  | Complex redirects, customization required |
++------------------------+-----------------------------+-------------------------------------------+
+| Code Example           | return "redirect:/success"; | RedirectView redirectView = new RedirectView("/success");|
+|                        |                             | return redirectView;                      |
++------------------------+-----------------------------+-------------------------------------------+
+| When to Use            | Simple redirects            | Custom redirects, need for HTTP status    |
+|                        |                             | customization                             |
++------------------------+-----------------------------+-------------------------------------------+
