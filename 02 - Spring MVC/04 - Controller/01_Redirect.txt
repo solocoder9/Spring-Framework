@@ -1,0 +1,36 @@
+Redirect in Spring MVC
+----------------------
+- A redirect in Spring MVC is a mechanism that instructs the browser to make a new request
+  to a different URL.
+- This is used after performing actions like form submissions, updates, or login/logout, 
+  where you don't want the user to stay on the same page.
+- Key Points:
+    ● After a request is processed, the server sends an HTTP redirect response to the browser.
+    ● The browser then makes a new request to the specified URL.
+    ● It helps in preventing duplicate form submissions and improves the user experience by
+      by navigating to appropriate pages (e.g., confirmation page, success page).
+
+1. Redirect using 'redirect:' Prefix
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- The 'redirect:' prefix is the simplest and most common way of handling redirects in spring 
+  MVC.
+- Syntax:
+    return "redirect:/targetPage";
+
+2. Redirect using RedirectView
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- RedirectView is a more flexible way to handle redirects.
+- It allows you to have more control over the redirect behavior, such as setting custom HTTP
+  status codes, headers, or redirect properties.
+- Example:
+    @RequestMapping("/submitForm")
+    public RedirectView submitForm() {
+        // Create a RedirectView instance
+        RedirectView redirectView = new RedirectView("/success");
+        return redirectView;
+    }
+
+    @RequestMapping("/success")
+    public String successPage() {
+        return "success";
+    }
