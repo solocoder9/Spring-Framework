@@ -1,0 +1,61 @@
+Data Binding in Spring MVC
+--------------------------
+- In Spring MVC, data binding refers to the process of binding HTTP request parameters (typically 
+  from form submissions or URL parameters) to Java objects (such as a model or command object) 
+  automatically.
+- This process is crucial for handling user inputs from a webpage and converting them into usable 
+  java objects, which can then be processed or stored.
+- Spring automatically maps form field to Java bean properties, allowing the controller to easily
+  work with the data.
+
+■ Key Concepts
+--------------
+● How Data Binding Works:
+~~~~~~~~~~~~~~~~~~~~~~~~
+1. DispatcherServlet receives the HTTP request.
+2. The request is routed to the appropriate controller method.
+3. Spring automatically binds the HTTP request data to the method parameters, model attributes, or 
+   command objects using data binding mechanisms.
+
+● @ModelAttribute:
+~~~~~~~~~~~~~~~~~
+- Used to bind form fields or HTTP request parameters to a model object in the controller.
+- Can be used at the method parameter level to automatically bind the from data to a java object.
+- Example:
+    @RequestMapping("/submitUser")
+    public String submitUser(@ModelAttribute User user) {
+        // Spring automatically binds the form data to the User object
+        return "success";
+    }
+
+● @RequestParam:
+~~~~~~~~~~~~~~~~
+- Used to binding individual form field or query parameters to method parameters in the controller.
+- Example:
+    @RequestMapping("/submitUser")
+    public String submitUser(@RequestParam("username") String username, 
+                             @RequestParam("email") String email) {
+        // Individual form data can be bound to method parameters
+        return "success";
+    }
+
+● @Valid and @Validated:
+~~~~~~~~~~~~~~~~~~~~~~~~
+- Used for validation fo the bound data. After binding the data to the objects, Spring can 
+  automatically validate the object's constraints (using JSR-303 annotations like @NotNull, 
+  @Size, etc.).
+- Example:
+    @RequestMapping("/submitUser")
+    public String submitUser(@ModelAttribute @Valid User user, BindingResult result) {
+        if (result.hasErrors()) {
+            return "error";
+        }
+        return "success";
+    }
+
+● BindingResult (Interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Used to hold the result of the validation process. If there any validation errors, they will be 
+  stored in BindingResult for later processing.
+
+
