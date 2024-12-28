@@ -1,0 +1,29 @@
+SpringMVC-JDBC-Project/
+│
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   ├── com/
+│   │   │   │   ├── example/
+│   │   │   │   │   ├── controller/
+│   │   │   │   │   │   └── UserController.java          # Handles HTTP requests, interacts with service layer
+│   │   │   │   │   ├── dao/
+│   │   │   │   │   │   ├── UserDAO.java                # Data access object (DAO) for user
+│   │   │   │   │   │   └── UserDAOImpl.java            # Implementation of UserDAO interface using JDBC
+│   │   │   │   │   ├── model/
+│   │   │   │   │   │   └── User.java                   # Entity class representing User object
+│   │   │   │   │   ├── service/
+│   │   │   │   │   │   └── UserService.java            # Service layer that contains business logic
+│   │   │   │   │   └── util/
+│   │   │   │   │       └── JDBCUtil.java               # Utility class to manage JDBC connections
+│   │   ├── resources/
+│   │   │   ├── applicationContext.xml                  # Spring beans configuration (DAO, DataSource, etc.)
+│   │   │   ├── jdbc.properties                         # JDBC connection properties (URL, username, password)
+│   │   │   ├── log4j.properties                       # Logging configuration (if necessary)
+│   │   │   └── spring-servlet.xml                     # DispatcherServlet configuration for Spring MVC
+│   │   ├── webapp/
+│   │   │   ├── WEB-INF/
+│   │   │   │   └── views/
+│   │   │   │       └── userForm.jsp                    # View (JSP) for user form
+│   │   ├── pom.xml                                     # Maven configuration file
+└──
