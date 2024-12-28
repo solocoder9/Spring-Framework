@@ -1,0 +1,136 @@
+Persistence in Spring MVC
+-------------------------
+- Persistence in Spring MVC is the process of taking data from the view (submitted through forms) 
+  and storing it in a database.
+- Persistence is handled via technologies like JDBC, JPA and Hibernate.
+
+■ Key Concepts
+--------------
+1. Controller Layer:
+~~~~~~~~~~~~~~~~~~~~
+● Role: 
+    - The Controller is responsible for handling HTTP request and accepting input frm the view.
+
+● Process:
+    - It receives form data from the view (usually as HTTP request parameters).
+    - It process the data and interacts with the service layer to apply business logic.
+    - After processing, it sends the data to the data access layer (DAO/Repository) for storage 
+      in the database.
+● Key Elements:
+    - Typically uses @Controller or @RestController annotations.
+    - Handles form submission with @ModelAttributes or @RequestParam.
+    - Redirects or forwards to a view after processing.
+
+● Example: 
+    @Controller
+    public class UserController {
+        @Autowired
+        private UserService userService;
+
+        @PostMapping("/submitForm")
+        public String submitForm(@ModelAttribute User user) {
+            userService.saveUser(user); // Sends data to service layer
+            return "success"; // Redirect to success page
+        }
+    }
+
+
+2. Service Layer:
+~~~~~~~~~~~~~~~~~
+● Role:    
+    - The Service Layer contains the business logic and acts as a bridge between the controller
+      and the data access layer (DAO/Repository).
+
+● Process:
+    - Receives the data or request from the controller.
+    - Applies any business rules or logic (e.g., data validation, transformations).
+    - Delegates the actual data storage or retrieval task to the DAO/Repository.
+
+● key Elements:
+    - Often annotated with @Service.
+    - Manages transactions (using @Transactional).
+    - Ensures separation of concerns by keeping business logic away from the controller.
+
+● Example:
+    @Service
+    public class UserService {
+        @Autowired
+        private UserRepository userRepository;
+
+        @Transactional
+        public void saveUser(User user) {
+            // Business logic (e.g., check if user exists, etc.)
+            userRepository.save(user); // Delegate to repository for DB operation
+        }
+    }
+
+
+3. DAO/Repository Layer:
+~~~~~~~~~~~~~~~~~~~~~~~~
+● Role:
+    - The DAO(Data Access Object) or Repository layer is responsible for interacting directly 
+      with the database.
+
+● Process:
+    - Handles CRUD operations: Create, Read, Update, and Delete data.
+    - Uses JDBC, JPA, or Hibernate (ORM) to perform these operations.
+    - The DAO/Repository layer is typically the interface through which the service layer 
+      interacts with the database.
+    - Entity classes are mapped to database tables, and the Repository layer interacts with 
+      these entities to save or retrieve data from the database.
+
+● Key Elements:
+    - JDBC-based DAOs typically use 'JdbcTemplate' for database operations.
+    - JPA-based repositories extend 'JpaRepository' (Spring Data JPA).
+    - In Hibernate, entities are managed 'SessionFactory' and 'Session'.
+
+● Example:
+    @Repository
+    public interface UserRepository extends JpaRepository<User, Long> {
+        User findByEmail(String email);
+    }   
+
+
+4. Database Layer:
+~~~~~~~~~~~~~~~~~~
+● Role:   
+    - The Database layer is where data is persisted and retrieved. It is the final storage that
+      holds the applications's data.
+
+● Process:
+    - The DAO/Repository layer communicates with the database to store, update or retrieve data.
+    - Data is saved into or fetched from relational databases (e.g., MySQL, PostgreSQL) or other
+      persistent storage solutions.
+
+● Key Elements:
+    - The database could be a relational databases (like MySQL, PostgreSQL) or a NoSQL database
+      (like MongoDB).
+    - The schema is usually mapped to JPA entities or JDBC models.
+
+● Example: Database Schema (MySQL)
+    CREATE TABLE users (
+        id BIGINT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(100),
+        email VARCHAR(100)
+    );
+
+
+
+
+
+■ Flow of Persistence 
+----------------------
+1. User Inputs Data (via a form in the View):
+    - The user submits data through an HTML form (e.ge., name, email, etc.).
+
+2. Data Binding:
+    - Spring automatically binds the submitted data (form parameters) to a model object (usually
+      using the @ModelAttribute annotation).
+
+3. Controller Receives Data:
+    - The controller method receives the model object populated with the form data. The controller
+      then process this data (e.g., validation, business logic).
+
+4. Persisting Data (Saving to Database):
+    - The controller passes the data to the service or repository layer, which handles saving it 
+      to the database using JDBC, JPA, or another persistence framework.
