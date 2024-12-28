@@ -1,0 +1,43 @@
+From Handling in Spring MVC
+---------------------------
+- Form handling in Spring MVC refers to the process of binding incoming HTTP request parameters
+  (typically from form submissions or URL parameters) to Java object in a controller.
+- Spring provides a simple and powerful mechanism to automatically map form data to Java 
+  objects, which simplifies handling user input and reduces boilerplate code.
+
+● How Spring Binds Request Parameters to Java objects?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. HTTP Request
+    - When a user submits a form (using a POST or GET request), the form data is sent as key-
+      value pairs in the request (e.g., 'username=JohnDoe&email=john15@example.com).
+
+2. DispatcherServlet
+    - The DispatcherServlet is the front controller in Spring MVC that handles all incoming
+      HTTP request.
+    - It routes the request to the appropriate controller method.
+
+3. Controller Method:
+    - Spring automatically binds the form data to method parameters or model attributes.
+    - This binding happens based on the method signature an the annotations used (e.g., 
+      @RequestParam, @ModelAttribute).
+
+
+● Form Handling Flow in Spring MVC
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. From Submission:
+    - The suer fills out a form on the webpage and submits it via HTTP POST or GET.
+
+2. DispatcherServlet:
+    - The request is sent to the DispatcherServlet, which dispatches it to the appropriate 
+      controller method.
+
+3. Binding:
+    - Spring binds the form data to the method parameters or model attributes using the 
+      @ModelAttribute or @RequestParam annotations.
+
+4. Validation (Optional):
+    - If @Valid is used, Spring performs validation on the Java object and stores any validation 
+      errors in the BindingResult.
+
+5. Processing:
+    - The controller processes the form data (e.ge., saving it to a database) and return a view.
