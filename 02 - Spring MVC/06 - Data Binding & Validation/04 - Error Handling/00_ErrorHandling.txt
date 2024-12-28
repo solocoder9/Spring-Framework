@@ -1,0 +1,41 @@
+Error Handling in Spring MVC
+----------------------------
+- Error Handling in Spring MVC is an important aspect of building robust and user-friendly
+  web applications.
+- Spring provides several ways to handle errors, ranging from handling exceptions in individual
+  controllers to global exception handling.
+- Proper error handling ensures that users receive meaningful error messages and that the 
+  system behaves predictably even when errors occur.
+
+● Types of Errors in Spring MVC
+-------------------------------
+1. Application Error:
+~~~~~~~~~~~~~~~~~~~~~
+- These are errors that occur due to issues in the business logic or unexpected situations, 
+  like invalid data or database connection failures.
+
+2. Client-Side Errors:
+~~~~~~~~~~~~~~~~~~~~~~
+- These errors are caused by the user, such as providing invalid input or submitting an 
+  incomplete form.
+
+3. System Errors:
+~~~~~~~~~~~~~~~~~
+- Errors like '500 Internal Server Error' or several misconfigurations.
+
+
+■ Summary of Error Handling in Spring MVC:
+-----------------------------------------
+● Controller-Level Error Handling: 
+    - Use @ExceptionHandler to handle exceptions within a specific controller.
+● Global Error Handling: 
+    - Use @ControllerAdvice to handle exceptions globally across all controllers.
+● @ResponseStatus: 
+    - Map exceptions to HTTP status codes, providing more granular control over error responses.
+● Validation Errors: 
+    - Use BindingResult to handle form validation errors, returning the user to the form with 
+      error messages.
+● Custom Error Pages: 
+    - Configure custom error pages for HTTP status codes or exceptions.
+● Error Display in Views: 
+    - Use form:errors (JSP) or th:errors (Thymeleaf) to display error messages in the view.
