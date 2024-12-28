@@ -1,0 +1,24 @@
+Flow Diagram of Spring MVC Persistence layers
+---------------------------------------------
+            +----------------------+
+            |  Presentation Layer  |
+            |      (Controller)    |
+            +----------------------+
+                      |
+                      ↓
+            +----------------------+
+            |    Service Layer     |
+            |   (Business Logic)   |
+            +----------------------+
+                      |
+                      ↓
+            +----------------------+
+            | Persistence Layer    |
+            | (DAO / Repository)   |
+            +----------------------+
+                      |
+                      ↓
+            +----------------------+
+            |   Database Layer     |
+            |   (RDBMS / NoSQL)    |
+            +----------------------+
