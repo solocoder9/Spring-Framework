@@ -1,0 +1,77 @@
+Validation in Spring MVC
+------------------------
+- Validation in Spring MVC ensures that the data submitted by the user meets the specified 
+  constraints before it is processed.
+- it helps to prevent incorrect or malicious data being stored in the system.
+- In spring MVC, validation is often handled through annotations like @NotNull, @Size, @Email,
+  etc., which are applied to Java bean properties. Spring automatically validates the data
+  after it is bound to a Java object.
+
+■ Key Concepts
+--------------
+● JSR-303/JSR-380 (Java Bean Validation)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Spring uses Java Bean Validation (JSR-303 for older version or JSR-380 for the newer version)
+  for validation.
+- The validation annotations are provided by the 'javax.validation.constraints' package or 
+  'jakarta.validation.constraints' in the newer versions.
+
+● @Valid and @Validated
+~~~~~~~~~~~~~~~~~~~~~~~
+- @Valid is used to trigger validation on the model object after it is bound.
+- @Validated is a more flexible version of @Valid and can be used for different validation groups.
+
+● BindingResult
+~~~~~~~~~~~~~~~
+- BindingResult is an interface that holds the result of the validation.
+- After validating, BindingResult will contain any errors, which can be checked in the controller
+  to handle the validation results.
+
+
+■ Validation Annotations
+------------------------
+● @NotNull:
+~~~~~~~~~~~
+    - Ensure that the field is not null.
+    - Example:
+        @NotNull
+        private String username;
+
+● @Size(min, max):
+~~~~~~~~~~~~~~~~~~
+    - Validates the size of a field (e.g., string length).
+    - Example:
+        @Size(min = 5, max = 15)
+        private String password;
+
+● @Email:
+~~~~~~~~~
+    - Validate that the field is a valid email format.
+    - Example:
+        @Email
+        private String email;
+
+● @Min and @Max:
+~~~~~~~~~~~~~~~~
+    - Ensures that the numeric value of the field is within a specified range.
+    - Example:
+        @Min(18)
+        @Max(100)
+        private int age;
+
+● @Pattern:
+~~~~~~~~~~~
+    - Validates the field against a regular expression pattern.
+    - Example:
+        @Pattern(regexp = "^[A-Za-z]+$")
+        private String firstName;
+
+● @Past and @Future:
+~~~~~~~~~~~~~~~~~~~~
+    - Ensures the data is in the past or future.
+    - Example:
+        @Past
+    private Date birthDate;
+
+
+
