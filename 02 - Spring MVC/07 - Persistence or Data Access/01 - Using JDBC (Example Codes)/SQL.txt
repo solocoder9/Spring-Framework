@@ -1,0 +1,18 @@
+mysql> CREATE TABLE user (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     name VARCHAR(45),
+    ->     email VARCHAR(45),
+    ->     password VARCHAR(45)
+    -> );
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> DESC user;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id       | int         | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(45) | YES  |     | NULL    |                |
+| email    | varchar(45) | YES  |     | NULL    |                |
+| password | varchar(45) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
