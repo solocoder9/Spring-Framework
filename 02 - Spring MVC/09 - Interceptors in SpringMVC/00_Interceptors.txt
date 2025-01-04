@@ -1,0 +1,33 @@
+Interceptors in Spring MVC
+--------------------------
+- Interceptors in Spring MVC are used to pre-process and post-process HTTP request handled
+  by controllers.
+- They acts as filters, allowing you to execute logic before and after a request is 
+  processed by the controller.
+
+■ Key Features:
+~~~~~~~~~~~~~~~
+● Pre-Processing:
+    - Perform actions before the request reaches the controller (e.g., authentication,
+      logging).
+
+● Post-Processing:
+    - Perform actions after the controller processes the request (e.g., modifying response
+      data).
+
+● After Completion:
+    - Perform cleanup tasks after the request is completely processed.
+    
+■ Use Cases:
+~~~~~~~~~~~~
+● Logging Requests and Responses: Track incoming requests and responses for debugging.
+● Security and Authentication: Check user permissions or authentication before proceeding.
+● Data Preprocessing: Modify request parameters or headers.
+● Global Error Handling: Handle specific exceptions globally.
+● Session Management: Validate or update session details.
+
+■ Key Methods:
+~~~~~~~~~~~~~~
+● preHandle() - Executes before the controller. Return false to stop the execution.
+● postHandle() - Executes after the controller but before rendering the view.
+● afterCompletion() - Executes after the view is rendered, useful for cleanup tasks.
