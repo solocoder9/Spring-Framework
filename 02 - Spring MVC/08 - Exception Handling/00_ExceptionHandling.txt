@@ -1,0 +1,82 @@
+Global Exception Handling in Spring MVC
+---------------------------------------
+- Exception Handling in Spring MVC provides mechanism to handle exceptions that occur during
+  the execution or web request.
+- It supports both local exception handling (specific to a controller) and global exception 
+  handling (applies to all controllers).
+- This approach ensures error responses are consistent and user-friendly.
+
+■ Why Use Exception Handling in Spring MVC?
+-------------------------------------------
+● Centralized Error Management:- Avoids repetitive code in controllers.
+● User-Friendly Responses:- Provide custom error messages and views.
+● Consistency:- Provide a uniform error response format.
+● Scalability:- Easily handles exceptions for large applications.
+● Flexibility:- Can define custom error views or JSON responses for REST APIs.
+
+
+1. Local Exception Handling
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Local Exception Handling is specific to a single controller and is implemented using the 
+  @ExceptionHandler annotation.
+- @ExceptionHandler is handles exceptions at the controller level.
+- Example:
+    @Controller
+    public class MyController {
+
+        @GetMapping("/example")
+        public String example() {
+            throw new NullPointerException("Null Pointer Exception Occurred");
+        }
+
+        @ExceptionHandler(NullPointerException.class)
+        public ModelAndView handleNullPointerException(Exception ex) {
+            ModelAndView mv = new ModelAndView("error");
+            mv.addObject("message", ex.getMessage());
+            return mv;
+        }
+    }
+
+2. Global Exception Handling
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Global Exception Handling applies to all controllers and is implemented using the 
+  @ControllerAdvice annotation.
+- @ControllerAdvice is basically marks the class as a global exception handler.
+- Example:
+    @ControllerAdvice
+    public class GlobalExceptionHandler {
+
+        @ExceptionHandler(NullPointerException.class)
+        public ModelAndView handleNullPointerException(Exception ex) {
+            ModelAndView mv = new ModelAndView("error");
+            mv.addObject("message", ex.getMessage());
+            return mv;
+        }
+
+        @ExceptionHandler(Exception.class)
+        public ModelAndView handleAllExceptions(Exception ex) {
+            ModelAndView mv = new ModelAndView("error");
+            mv.addObject("message", "An error occurred: " + ex.getMessage());
+            return mv;
+        }
+    }
+
+3. Custom Exception with @ResponseStatus
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- You can define custom exceptions with specific HTTP status codes.
+- Example:
+    @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "Resource Not Found")
+    public class ResourceNotFoundException extends RuntimeException {
+        public ResourceNotFoundException(String message) {
+            super(message);
+        }
+    }
+
+Use in controller
+    @GetMapping("/find/{id}")
+    public String findItem(@PathVariable int id) {
+        if (id != 1) {
+            throw new ResourceNotFoundException("Item not found with ID: " + id);
+        }
+        return "item";
+    }
