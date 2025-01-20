@@ -1,0 +1,88 @@
+Spring Boot
+-----------
+- Spring Boot is an open- source framework build on top of the Spring Framework, designed to
+  create stand-alone, production-grade applications with minimal configuration.
+- It simplifies the process of setting up, configuring, and deploying Spring-based applications.
+- Spring Boot eliminates much of the boilerplate code and configuration traditionally required 
+  in Spring applications by providing sensible defaults and auto-configuration options.
+
+■ Key Features
+--------------
+1. Auto-Configuration:
+~~~~~~~~~~~~~~~~~~~~~~
+- Automatically configures application component based on the project setup.
+- Reduce the need for manual configuration and XML files.
+- Example: If you include 'spring-boot-starter-data-jpa', Spring Boot automatically configure
+  a DataSource, EntityManager, and JpaRepository
+
+2. Embedded Servers:
+~~~~~~~~~~~~~~~~~~~~
+- Supports embedded web servers (Tomcat, Jetty, Undertow).
+- Eliminates the need to deploy the application to an external server.
+- Helps in quick application deployment and testing.
+
+3. Spring Boot Starters:
+~~~~~~~~~~~~~~~~~~~~~~~~
+- Pre-configured set of dependencies for common use cases.
+- Example: 'spring-boot-starter-web' for web applications, 'spring-boot-starter-test' for testing,
+  etc.
+
+4. Externalized Configuration:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Spring Boot allows the use of external configuration files (like 'application.properties' or 
+  application.yml) to mange settings such as database credentials, server ports, etc.
+- This makes it easy to configure your application across different environments (development, 
+  testing, production).
+
+5. Production-Ready Features (Actuator):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Build-in health, metrics, and application monitoring with minimal setup.
+- Example: The '/actuator/health' endpoint provides information about the health of your application.
+
+6. Standalone Applications:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Spring Boot applications can run independently without needing a complex server setup.
+- "Spring Boot Jar" allows packaging the application as a self-contained executable JAR file.
+
+7. Spring Boot CLI (Command-Line Interface):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Spring Boot CLI allows developers to run Spring Boot application from the command line.
+- You can quickly prototype Spring Boot application using Groovy or Java.
+
+8. Minimal Setup:
+~~~~~~~~~~~~~~~~~
+- Spring Boot minimizes the XML or Java-based configuration. Most can be done bia annotations or 
+  externalized properties files.
+
+
+■ Spring Boot Architecture
+--------------------------
+● Basic Application Flow:
+~~~~~~~~~~~~~~~~~~~~~~~~~
+1. The main method in the Spring Boot application class is executed.
+2. The @SpringBootApplication annotation triggers auto-configuration and component scanning.
+3. Spring Boot Auto-Configuration takes care of configuring beans, such as data sources, embedded 
+   servers, etc.
+4. Spring Boot manages the application lifecycle and the embedded server (e.g., Tomcat).
+5. Controllers handle HTTP requests, and Spring Boot renders views or returns JSON/XML based on the 
+   type of application (web or REST).
+6. Spring Boot Actuator provides endpoints for monitoring and managing the application.
+
+
+■ Common Annotations
+--------------------
+● @SpringBootApplication: Marks the main entry point of a Spring Boot application and enables 
+                          auto-configuration, component scanning, and configuration.
+● @RestController: A convenience annotation that combines @Controller and @ResponseBody, commonly 
+                   used in RESTful applications.
+● @RequestMapping: Used to map HTTP requests to handler methods of MVC controllers.
+● @GetMapping: A shortcut for @RequestMapping(method = RequestMethod.GET), used for GET requests.
+● @PostMapping: A shortcut for @RequestMapping(method = RequestMethod.POST), used for POST requests.
+● @RequestParam: Binds a request parameter to a method parameter in the controller.
+● @PathVariable: Binds a URI template variable to a method parameter.
+● @Value: Injects values from configuration files (e.g., application.properties or application.yml) 
+          into fields.
+● @ComponentScan: Automatically scans for components (e.g., controllers, services, repositories) in 
+                  the application.
+● @EnableAutoConfiguration: Tells Spring Boot to automatically configure the application based on 
+                            the dependencies found in the classpath.
