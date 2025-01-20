@@ -1,0 +1,36 @@
++-------------------+-------------------------------------------+--------------------------------------------+
+| Aspect            | Spring MVC                                | Spring Boot                                |
++-------------------+-------------------------------------------+--------------------------------------------+
+| Basic Definition  | A framework for building web applications | A framework for building stand-alone,      |
+|                   | using the Model-View-Controller pattern.  | production-ready Spring applications with  |
+|                   |                                           | minimal configuration.                     |
++-------------------+-------------------------------------------+--------------------------------------------+
+| Configuration     | Requires manual configuration for web     | Auto-configuration with minimal setup.     |
+|                   | components (e.g., DispatcherServlet, view | Reduces the need for extensive configuration. |
+|                   | resolvers, etc.).                         |                                            |
++-------------------+-------------------------------------------+--------------------------------------------+
+| Setup             | Needs an external server (e.g., Tomcat)   | Comes with embedded servers (e.g., Tomcat, |
+|                   | to run the application.                   | Jetty) for standalone deployment.          |
++-------------------+-------------------------------------------+--------------------------------------------+
+| Dependency        | Requires manually adding necessary Spring | Includes Spring Boot starters to auto-     |
+| Management        | MVC dependencies and libraries.           | configure and manage dependencies.         |
++-------------------+-------------------------------------------+--------------------------------------------+
+| Ease of Use       | More configuration required, especially   | Easier to set up, with built-in defaults   |
+|                   | for web-related components.               | and auto-configuration.                    |
++-------------------+-------------------------------------------+--------------------------------------------+
+| Packaging         | Typically packaged as a WAR file for      | Can be packaged as a JAR with embedded     |
+|                   | deployment on an external server.         | server, simplifying deployment.            |
++-------------------+-------------------------------------------+--------------------------------------------+
+| Development Speed | Slower due to manual setup and boilerplate| Faster due to auto-configuration and fewer |
+|                   | code.                                     | configurations required.                   |
++-------------------+-------------------------------------------+--------------------------------------------+
+| Learning Curve    | Moderate, requires understanding Spring   | Easier and faster to learn due to its      |
+|                   | MVC components and setup.                 | simplified configuration and convention.   |
++-------------------+-------------------------------------------+--------------------------------------------+
+| Flexibility       | Highly flexible for customizing each      | Less flexible out of the box but faster    |
+|                   | component (view resolvers, controllers,   | for quick development with default setups. |
+|                   | etc.).                                    |                                            |
++-------------------+-------------------------------------------+--------------------------------------------+
+| Use Case          | Best for complex web applications with    | Ideal for rapid development, microservices |
+|                   | custom configurations and setups.         | or smaller projects.                       |
++-------------------+-------------------------------------------+--------------------------------------------+
