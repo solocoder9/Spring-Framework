@@ -1,0 +1,33 @@
++-------------------+-------------------------------------------+--------------------------------------------+
+| Aspect            |               Spring Framework            |                Spring Boot                 |
++-------------------+-------------------------------------------+--------------------------------------------+
+| Basic Definition  | A comprehensive framework for building    | A framework built on top of Spring that    |
+|                   | Java enterprise apps.                     | simplifies setup and development.          |
++-------------------+-------------------------------------------+--------------------------------------------+
+| Configuration     | Requires extensive XML or Java-based      | Provides auto-configuration to reduce      |
+|                   | configuration.                            | setup and configuration.                   |
++-------------------+-------------------------------------------+--------------------------------------------+
+| Setup & Dependencies| Manual setup of dependencies, components,| Uses Spring Boot starters to automatically|
+|                   | and beans.                                | include necessary dependencies.            |
++-------------------+-------------------------------------------+--------------------------------------------+
+| Web Server Setup  | Requires setting up an external web       | Provides embedded web servers (e.g.,       |
+|                   | server (e.g., Tomcat).                    | Tomcat, Jetty) to avoid manual config.     |
++-------------------+-------------------------------------------+--------------------------------------------+
+| Application       | Requires separate packaging for WAR       | Can be packaged as a standalone JAR file   |
+| Packaging         | files (for web apps).                     | with embedded server.                      |
++-------------------+-------------------------------------------+--------------------------------------------+
+| Ease of Use       | Requires a lot of boilerplate code and    | Easier and quicker to use with fewer       |
+|                   | configuration.                            | configurations required.                   |
++-------------------+-------------------------------------------+--------------------------------------------+
+| Development Speed | Slower due to complex configurations      | Faster due to auto-configuration and       |
+|                   | and manual setups.                        | built-in defaults.                         |
++-------------------+-------------------------------------------+--------------------------------------------+
+| Learning Curve    | Steeper, requires understanding of        | Easier to learn, abstracts a lot of        |
+|                   | various Spring modules.                   | complexity.                                |
++-------------------+-------------------------------------------+--------------------------------------------+
+| Customization     | Highly customizable with manual setup.    | Limited customization unless overridden    |
+|                   |                                           | by properties or code.                     |
++-------------------+-------------------------------------------+--------------------------------------------+
+| Use Case          | Best for large, complex, enterprise       | Ideal for microservices, small to medium    |
+|                   | applications.                             | applications, or quick prototypes.         |
++-------------------+-------------------------------------------+--------------------------------------------+
