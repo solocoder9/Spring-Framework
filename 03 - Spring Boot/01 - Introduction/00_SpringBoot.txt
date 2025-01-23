@@ -5,6 +5,9 @@ Spring Boot
 - It simplifies the process of setting up, configuring, and deploying Spring-based applications.
 - Spring Boot eliminates much of the boilerplate code and configuration traditionally required 
   in Spring applications by providing sensible defaults and auto-configuration options.
+- Rapid Application Development (RAD): Spring Boot enables faster application development by 
+  reducing setup time and configuration overhead, allowing developers to quickly prototype and 
+  build production-ready applications with minimal effort.
 
 ■ Key Features
 --------------
