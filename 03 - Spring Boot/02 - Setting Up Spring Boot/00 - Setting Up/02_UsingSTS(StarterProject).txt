@@ -1,0 +1,54 @@
+Create Spring Boot project using STS (Starter Project)
+------------------------------------------------------
+Step 1: Create a New Spring Starter Project
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+● Open Spring Tools Suite (STS).
+● Go to File > New > Spring Starter Project.
+
+Step 2: Enter Project Information
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+● Name: Enter the name of your project. Example: SpringBootApp.
+● Group: Enter the group name (e.g., com.test).
+● Artifact: Enter the artifact name (same as the project name, e.g., SpringBootApp).
+● Description: Provide a short description of the project (e.g., "Spring Boot Web Application").
+● Package: The package name (will auto-generate based on your group and artifact).
+● Packaging: Choose Jar (the default for Spring Boot applications).
+● Java Version: Select the Java version (e.g., Java 11 or Java 17).
+● Once you've filled in this information, click Next.
+
+Step 3: Add Dependencies
+~~~~~~~~~~~~~~~~~~~~~~~~
+● In the Dependencies section:
+- Search for the dependencies you want to add for your Spring Boot application.
+- Commonly selected dependencies include:
+    ○ Spring Web (to create a web application with RESTful APIs).
+    ○ Spring Data JPA (for database access).
+    ○ Spring Boot DevTools (for faster development with live reloads).
+    ○ Thymeleaf (for creating web pages with templates).
+    ○ H2 Database (an embedded database for development and testing).
+● Add any necessary dependencies by searching for them in the search box and selecting them.
+● After selecting the dependencies, click Next.
+
+Step 4: Generate the Project
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+● Review your selections and click Finish.
+● The IDE will generate a Spring Boot project with the settings you’ve specified.
+
+Step 5: Review the Generated Project Structure
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+● Your project will be created in the Workspace directory in STS with the following structure:
+src/main/java: Contains your Java source code, including the main application class with the @SpringBootApplication annotation.
+src/main/resources: Contains configuration files (such as application.properties or application.yml).
+static: Static resources like CSS, images, and JS.
+templates: Contains Thymeleaf templates if you're using them.
+pom.xml: The Maven configuration file that lists all dependencies and build configurations.
+
+Step 6: Build and Run the Application
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+● Right-click on the Application.java (the main class) file (it will be located in src/main/java).
+● Select Run As > Java Application.
+
+Step 7: Verify the Application
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+● Once your Spring Boot application is running, open a browser and go to http://localhost:8080.
+● You should see the default Spring Boot application or any custom pages you've configured.
