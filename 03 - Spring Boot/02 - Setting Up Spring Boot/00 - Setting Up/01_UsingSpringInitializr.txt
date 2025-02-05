@@ -1,0 +1,60 @@
+Create Spring Boot project using Spring Initializer (Website)
+-------------------------------------------------------------
+Step 1: Visit Spring Initializr
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+● Go to the Spring Initializr website: https://start.spring.io.
+
+Step 2: Choose Project Settings
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+● Project: Choose Maven Project or Gradle Project depending on your preference.
+● Language: Select Java.
+● Spring Boot Version: Choose the latest stable version of Spring Boot.
+● Project Metadata:
+    ○ Group: Enter a group name, for example: com.test.
+    ○ Artifact: Enter the artifact name, for example: SpringBootApp.
+    ○ Name: Enter the project name.
+    ○ Description: Add a description for your project.
+    ○ Package Name: The package name is usually generated from the group name and artifact name, e.g., com.test.SpringBootApp.
+    ○ Packaging: Choose Jar or War based on your application needs (Jar is the default for Spring Boot).
+    ○ Java Version: Select the Java version you want to use (e.g., Java 11, Java 17).
+
+Step 3: Add Dependencies
+~~~~~~~~~~~~~~~~~~~~~~~~
+● Under the Dependencies section, click on Add Dependencies and select the necessary dependencies for your Spring Boot project. Some common dependencies include:
+● Spring Web: For building web applications.
+● Spring Boot DevTools: For live reloading and development tools.
+● Spring Data JPA: If you want to use Spring Data JPA for database access.
+● Thymeleaf: If you want to use Thymeleaf as a template engine for rendering web pages.
+● Spring Security: If you want to secure your application.
+● H2 Database (an embedded database for development and testing).
+
+Step 4: Generate the Project
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+● Once you've selected your dependencies, click on the Generate button.
+● The Spring Initializr will prepare a .zip file containing your project.
+● Download the .zip file and extract it to your desired location on your machine.
+
+Step 5: Import the Project into Your IDE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+● Open your IDE (e.g., IntelliJ IDEA, Eclipse).
+    ○ For Eclipse:
+        Go to File > Import > Existing Maven Projects.
+        Select the extracted project folder and click Finish.
+
+    ○ For IntelliJ IDEA:
+        Open IntelliJ IDEA and select File > Open.
+        Choose the extracted project folder and click OK.
+
+Step 6: Build and Run the Application
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+● Once your project is imported into the IDE, you can build and run the Spring Boot application.
+    ○ In Eclipse:
+        Right-click the Application.java (or similar class) file and select Run As > Java Application.
+    ○ In IntelliJ IDEA:
+        Click the Run button (the green triangle) in the top right of the IDE.
+● The Spring Boot application will start, and you should see output in the console indicating that the application is running.
+
+Step 7: Verify the Application
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+● Open your browser and go to http://localhost:8080.
+● You should see a default Spring Boot message or a page based on the configurations you selected.
