@@ -1,0 +1,6 @@
+Prerequisite Tools and Technologies (Softwares)
+-----------------------------------------------
+1. JDK (Java 8 or higher is recommended)
+2. IDE - Spring Tool Suite / Eclipse / IntelliJ IDEA
+3. Build Tool - Maven / Gradle
+4. Database - Mysql (CLI / Workbench)
