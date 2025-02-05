@@ -1,0 +1,42 @@
+Directory Structure for Spring Boot (Maven Project)
+---------------------------------------------------
+
+SpringBootProject
+│
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── com
+│   │   │       └── example
+│   │   │           ├── SpringBootApp.java           // Main application class (@SpringBootApplication)
+│   │   │           ├── config
+│   │   │           │   └── AppConfig.java           // Configuration for beans, data sources, etc.
+│   │   │           ├── controller
+│   │   │           │   └── HomeController.java      // Spring MVC Controllers
+│   │   │           ├── dao
+│   │   │           │   └── YourEntityDao.java       // Data Access Object classes (if applicable)
+│   │   │           ├── model
+│   │   │           │   └── YourEntity.java          // Entity classes (JPA Entities if using DB)
+│   │   │           └── service
+│   │   │               └── YourService.java         // Service classes for business logic
+│   │   │
+│   │   ├── resources
+│   │   │   ├── application.properties              // Main application configuration
+│   │   │   ├── messages.properties                 // Internationalization (i18n) messages
+│   │   │   ├── static                              // Static resources (JS, CSS, images)
+│   │   │   │   └── css
+│   │   │   │       └── style.css                   // Stylesheets
+│   │   │   │   └── js
+│   │   │   │       └── script.js                   // JavaScript files
+│   │   │   └── templates                           // HTML templates (if using Thymeleaf or JSP)
+│   │   │       └── home.html                       // Example Thymeleaf template
+│   │   │
+│   │   └── webapp
+│   │       └── WEB-INF
+│   │           ├── views                           // View files (If using JSP or HTML)
+│   │           │   └── home.jsp                    // Example JSP file
+│   │           └── web.xml                         // (If using traditional web.xml config)
+│   │
+│   └── pom.xml                                      // Maven build configuration (dependencies, plugins, etc.)
+│
+└── target                                           // Build directory where the packaged application is generated
