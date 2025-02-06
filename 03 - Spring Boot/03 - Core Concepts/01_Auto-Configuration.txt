@@ -1,0 +1,57 @@
+Auto-Configuration
+------------------
+- Auto-configuration is a feature in Spring Boot that automatically configures beans based on
+  the classpath dependencies and properties.
+- It eliminates the ned for explicit XML or Java-based configuration, making application setup
+  easier.
+- It uses '@EnableAutoConfiguration' internally to detect and configure beans automatically.
+
+How Auto-Configuration works?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Spring Boot scan the classpath for required dependencies and applies sensible default 
+  configurations.
+- Uses 'spring.factories (found in META-INF/spring.factories) to register auto-configuration 
+  classes.
+- Relies on '@Conditional' annotations to enable or disable configuration based on conditions.
+
+Key Annotations in Auto-Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++-----------------------------------+--------------------------------------------------------------------+
+|            Annotation             |                          Description                               |
++-----------------------------------+--------------------------------------------------------------------+
+| @EnableAutoConfiguration          | Enables Spring Boot’s auto-configuration mechanism. (Included in   |
+|                                   | @SpringBootApplication)                                            |
++-----------------------------------+--------------------------------------------------------------------+
+| @SpringBootApplication            | A combination of @EnableAutoConfiguration, @ComponentScan, and     |
+|                                   | @Configuration.                                                    |
++-----------------------------------+--------------------------------------------------------------------+
+| @ConditionalOnClass               | Activates configuration if a specific class is present in the      |
+|                                   | classpath.                                                         |
++-----------------------------------+--------------------------------------------------------------------+
+| @ConditionalOnMissingBean         | Configures a bean only if it is not already defined in the         |
+|                                   | context.                                                           |
++-----------------------------------+--------------------------------------------------------------------+
+| @ConditionalOnProperty            | Enables configuration based on a specific property in              |
+|                                   | application.properties or application.yml.                         |
++-----------------------------------+--------------------------------------------------------------------+
+| @AutoConfigureBefore /            | Controls the order of auto-configuration.                          |
+| @AutoConfigureAfter               |                                                                    |
++-----------------------------------+--------------------------------------------------------------------+
+
+Examples of Auto-Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+● Spring MVC Auto-Configuration:
+    ○ If you add 'spring-boot-starter-web', Spring Boot automatically configures:
+        - A 'DispacherServlet' (for handling HTTP requests).
+        - Default error handling.
+        - Static resource handling (e.g., serving files from 'src/main/resources/static').
+
+● Spring Data JPA Auto-Configuration
+    ○ If you add 'spring-boot-starter-data-jpa', Spring Boot automatically configures:
+        - A 'DataSource' bean.
+        - Hibernate as the JPA provider.
+        - Entity scanning and repository setup.
+
+● Embedded Server Auto-Configuration
+    ○ Spring Boot automatically configures and embedded server (e.g., Tomcat, Jetty, or Undertow) based
+      on the dependencies.
