@@ -1,0 +1,8 @@
+Spring Boot Starters
+--------------------
+- Spring Boot Starters are set of dependency descriptors that simplify your Maven or Gradle 
+  configuration.
+- They provide a selected list of dependencies for specific functionalities (e.g., web 
+  applications, data access, security) so you don't have to manually add individual dependencies.
+
+Why 
