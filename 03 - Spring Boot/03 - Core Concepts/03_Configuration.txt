@@ -1,0 +1,83 @@
+Configuration in Spring Boot
+----------------------------
+- Configuration in Spring Boot refers to the process of customizing the behavior of your application.
+- this includes setting up database connections, server ports, logging levels, and other application-
+  specific settings.
+- Spring Boot provides several ways to manage configuration, making it flexible and easy to use.
+
+
+■ Types of Configuration in Spring Boot
+---------------------------------------
+1. Properties Files (application.properties):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- A key-value pair format for configuration.
+- Example:
+    server.port=8081
+    spring.datasource.url=jdbc:mysql://localhost:3306/mydb
+
+2. YAML Files (application.yml)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- A hierarchical format for configuration, which is more readable for complex configurations.
+- Example:
+    server:
+        port: 8081
+    spring:
+        datasource:
+            url: jdbc:mysql://localhost:3306/mydb
+
+
+3. Java-Based Configuration (@Configuration)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- A programmatic configuration, using Java classes with @Configuration.
+- Example:
+    @Configuration
+    public class AppConfig {
+
+        @Bean
+        public DataSource dataSource() {
+            DriverManagerDataSource dataSource = new DriverManagerDataSource();
+            dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+            dataSource.setUrl("jdbc:mysql://localhost:3306/mydb");
+            dataSource.setUsername("root");
+            dataSource.setPassword("pass");
+            return dataSource;
+        }
+    }
+
+3. Profile-Based Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Spring Boot allows defining different configurations for different environments (e.g., dev, test,
+  prod) using profiles.
+    ● Setting up profile in 'application.properties'.
+    - Example:
+        spring.profiles.active=dev
+
+    ● Profile-Specific Configuration Files:
+    - Create files like 'application-dev.properties', 'application-prod.properties', etc.
+    - Example: (application-dev.properties)
+        server.port=8081
+        spring.datasource.url=jdbc:h2:mem:testdb
+
+
+4. Externalized Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+● Environment Variable:
+    - Configuration can be overridden using environment variables.
+    - Example:
+        export SERVER_PORT=8081
+
+● Command-Line Arguments:
+    - Configuration can be passed as passed as command-line arguments when running the 
+      application.
+    - Example:
+        java -jar myapp.jar --server.port=8081
+
+● External property files:
+    - Configuration can be provide via external property files that are located outside 
+      the applications's jar or inside it.
+    - Example:
+        # application.properties (inside resources)
+        server.port=8081
+        spring.datasource.url=jdbc:mysql://localhost:3306/mydb
+
+
