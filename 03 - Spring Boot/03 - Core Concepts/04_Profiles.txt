@@ -1,0 +1,63 @@
+Spring Boot Profiles
+--------------------
+- Spring Boot Profiles allows defining different configurations for different environments (e.g.,
+  development, testing, production).
+- This helps in managing environment-specific settings without changing the application Code
+  manually.
+
+
+■ Why Use Profile?
+------------------
+1. Simplify Environment-specific configurations:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Different environments (e.g., dev, test, prod) often require different settings (e.g., database
+  URLs, server ports, logging levels).
+- Profiles let you define these differences without changing you code. 
+
+2. Avoid Hardcoding:
+~~~~~~~~~~~~~~~~~~~~
+- Instead Hardcoding environment-specific values (e.g., database URLs), you can externalize them 
+  using profiles.
+
+3. Easy Switching:
+~~~~~~~~~~~~~~~~~~
+- You can easily switch between configurations by activating a specific profile.
+
+
+■ How Do Profile Work?
+----------------------
+1. Profile-Specific Configuration Files:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- You can create separate configuration files for each profile, such as:
+    ○ application-dev.properties (for development)
+    - Example:
+        server.port=8081
+        spring.datasource.url=jdbc:h2:mem:testdb
+
+    ○ application-prod.properties (for production)
+    - Example:
+        server.port=8080
+        spring.datasource.url=jdbc:mysql://localhost:3306/proddb
+
+2. Activating a Profile
+~~~~~~~~~~~~~~~~~~~~~~~
+- You can activate a profile in multiple ways.
+    ○ Using application.properties:
+    - Example: 
+        spring.profiles.active=dev
+
+    ○ Using Command-Line Arguments:
+    - Example:
+        java -jar myapp.jar --spring.profiles.active=prod
+
+    ○ Using Environment Variable:
+    - Example:
+        export SPRING_PROFILES_ACTIVE=prod
+
+    Using @Profile annotations
+    - Example:
+    
+        @Profile("dev")
+        public class DevConfig {
+            // code
+        }
