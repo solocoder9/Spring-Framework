@@ -1,0 +1,63 @@
+Spring Boot DevTools
+--------------------
+- Spring Boot DevTools is a module that improves the development experience by providing automatic
+  restart, live reload, and faster application updates.
+- It mainly used during development to increase productivity by reducing the need for manual restarts.
+
+
+■ Key Features of DevTools:
+---------------------------
+● Automatic Restart: Reloads the application when code changes.
+● Live Reload: Refreshes the browser automatically when templates change.
+● Disable Caching: Avoids caching issues during development.
+● Debug-friendly Features: Improved error messages and property tracing.
+● Excludes DevTools in Production: Automatically disabled in packaged JAR/WAR files.
+
+
+■ How Do DevTools Work?
+-----------------------
+1. Automatic Restarts:
+~~~~~~~~~~~~~~~~~~~~~~
+- When you make changes to your code. DevTools automatically restarts the application.
+- It uses two classloaders:
+    ○ Base ClassLoader: For third-party library (not restarted).
+    ○ Restart ClassLoader: For your application code (restarted).
+
+2. Live Reload:
+~~~~~~~~~~~~~~~
+- When you update static resources (e.g., HTML, CSS, JS) DevTools automatically refreshes the browser.
+
+3. Property Defaults:
+~~~~~~~~~~~~~~~~~~~~~
+- DevTools sets Sensible defaults for development, such as:
+    ○ Disabling template caching (e.g., Thymeleaf, Freemarker).
+    ○ Enabling debut logging.
+
+4. Remote Debugging:
+~~~~~~~~~~~~~~~~~~~~
+- DevTools allows you to debug a remote applications as if it were running locally.
+
+
+■ How to Use DevTools?
+----------------------
+1. Add DevTools to Your Project:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Add the 'spring-boot-devtools' dependency to your 'pom.xml' (Maven) or 'build.gradle' (Gradle) file.
+- Example:
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-devtools</artifactId>
+        <optional>true</optional>
+    </dependency>
+
+2. Run Your Application:
+~~~~~~~~~~~~~~~~~~~~~~~~
+- Start application in development mode. DevTools will automatically enable its features.
+
+3. Customize DevTools:
+~~~~~~~~~~~~~~~~~~~~~~
+- Use 'application.properties' or 'application.yml' to customize DevTools behavior. 
+- Example:
+    spring.devtools.restart.enabled=true
+    spring.devtools.livereload.enabled=true
+
