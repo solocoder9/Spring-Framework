@@ -1,0 +1,80 @@
+REST API
+--------
+- A REST API (Representational State Transfer API) is a set of architectural rules/guidelines/principles 
+  used to communicate between a client and a server using HTTP protocols like GET, POST, PUT, DELETE.
+- The follows principles:
+    Stateless: Each request is independent and contains all the information needed to process it.
+    Uses JSON/XML: Data is exchange in JSON or XML format.
+    Uniform Interface: Uses standard HTTP methods (GET, POST, PUT, DELETE) and status codes(200, 404, 500).
+    Resource-Based: Everything is treated as a resource (e.g., users, products) identified by a URL.
+- An API that follows or implement REST principles called RESTful API.
+
+■ Why Use REST APIs?
+~~~~~~~~~~~~~~~~~~~~
+1. Platform Independence:
+    - REST APIs can be consumed by any client (e.g., web, mobile, desktop) as long as it supports HTTP.
+    
+2. Scalability:
+    - REST APIs are stateless, making then easy to scale horizontally.
+
+3. Simplicity:
+    - Uses standard HTTP methods and status codes, making it easy to understand and implement.
+
+4. Flexibility:
+    - Supports multiple data formats (e.g., JSON, XML)
+
+■ Steps to Build a REST API
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. Create a Spring Boot Project:
+    - Use Spring initializr to generate a project with the 'Spring Web' dependency.
+
+2. Define the resource (Entity):
+    - Create a class to represent he resource (e.g., User).
+    - Example:
+        public class User {
+        private Long id;
+        private String name;
+        private String email;
+
+        // Getters and Setters
+        }
+3. Create a Controller:
+    - Use 'RestController' to define a REST controller.
+    - Example: 
+        @RestController
+        @RequestMapping("/api/users")
+        public class UserController {
+            // codes
+        }
+
+4. Run the Application:
+    - Start the application and access the API endpoints using tools like Postman / HTTPie or a browser.
+
+
+■ Common REST API Annotations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+● @RestController: Combines @Controller and @ResponseBody to indicate that the class is a REST controller.
+● @RequestMapping: Maps HTTP requests to handler methods. Can be used at the class or method level.
+● @GetMapping: Maps HTTP GET requests to a handler method.
+● @PostMapping: Maps HTTP POST requests to a handler method.
+● @PutMapping: Maps HTTP PUT requests to a handler method.
+● @DeleteMapping: Maps HTTP DELETE requests to a handler method.
+● @PathVariable: Binds a method parameter to a URI template variable.
+● @RequestBody: Binds the body of the HTTP request to a method parameter.
+● @ResponseStatus: Specifies the HTTP status code to return.
+
+■ Example: REST API Endpoints
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++-------------+-------------------+-------------------------+
+| HTTP Method | Endpoint          | Description             |
++-------------+-------------------+-------------------------+
+| GET         | /api/users        | Get all users.          |
++-------------+-------------------+-------------------------+
+| GET         | /api/users/{id}   | Get a user by ID.       |
++-------------+-------------------+-------------------------+
+| POST        | /api/users        | Create a new user.      |
++-------------+-------------------+-------------------------+
+| PUT         | /api/users/{id}   | Update an existing user.|
++-------------+-------------------+-------------------------+
+| DELETE      | /api/users/{id}   | Delete a user.          |
++-------------+-------------------+-------------------------+
