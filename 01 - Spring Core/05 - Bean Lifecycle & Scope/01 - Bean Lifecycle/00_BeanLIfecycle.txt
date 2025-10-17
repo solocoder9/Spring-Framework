@@ -32,7 +32,7 @@ Phases of Bean lifecycle
 
 4. Bean Post-Processors
 ~~~~~~~~~~~~~~~~~~~~~~~
-- Spring allows for customization ot the beans through BeanPostProcessor.
+- Spring allows for modifying or wrapping beans during initialization using 'BeanPostProcessor'.
 - Two important methods are invoked during this stage:
     ● postProcessBeforeInitialization: 
         - This method allows for modification of the bean before its initialization.
@@ -45,6 +45,9 @@ Phases of Bean lifecycle
   is called.
 - Additionally, if a custom initialization method is defined in the bean's configuration, it will
   also be called at this stage.
+- This is usually done via:
+    ● XML: init-method="init" / destroy-method="cleanup"
+    ● Annotation: @PostConstruct, @PreDestroy
 
 6. Ready for Use
 ~~~~~~~~~~~~~~~~
@@ -86,6 +89,6 @@ Phases of Bean lifecycle
 
 7. Destruction:
 ~~~~~~~~~~~~~~~
-- Custom destroy method (if defined) is called.
 - destroy() method (if implementing DisposableBean) is called.
+- Custom destroy method (if defined) is called.
 
