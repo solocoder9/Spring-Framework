@@ -5,7 +5,7 @@
            http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<!-- Bean definitions for Student entities using field injection -->
+	<!-- Bean definitions for Student entities using setter injection -->
 	<bean class="com.test.entities.Student" id="student1">
 		<property name="studentID" value="101" />
 		<property name="studentName" value="Charlie" />
