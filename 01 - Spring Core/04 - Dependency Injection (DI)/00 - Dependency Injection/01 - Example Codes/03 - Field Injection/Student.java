@@ -1,47 +1,22 @@
 package com.test.entities;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component("student1")  // Give the bean an explicit name (optional)
 public class Student {
 
-	// Private fields
+	@Value("101")  // Inject value directly into field
 	private int studentID;
+
+	@Value("Charlie")
 	private String studentName;
+
+	@Value("charlie15@gmail.com")
 	private String studentEmail;
 
-	// Default constructor
-	public Student() {
-		super();
-	}
-
-	// Getter & Setter methods for field injection
-	public int getStudentID() {
-		return studentID;
-	}
-
-	public void setStudentID(int studentID) {
-		this.studentID = studentID;
-	}
-
-	public String getStudentName() {
-		return studentName;
-	}
-
-	public void setStudentName(String studentName) {
-		this.studentName = studentName;
-	}
-
-	public String getStudentEmail() {
-		return studentEmail;
-	}
-
-	public void setStudentEmail(String studentEmail) {
-		this.studentEmail = studentEmail;
-	}
-
-	// Override toString() to print the Student details
 	@Override
 	public String toString() {
-		return "Student [studentID=" + studentID + ", studentName=" + studentName + ", studentEmail=" + studentEmail
-				+ "]";
+		return "Student [studentID=" + studentID + ", studentName=" + studentName + ", studentEmail=" + studentEmail + "]";
 	}
-
 }
