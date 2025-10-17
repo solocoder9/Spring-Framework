@@ -1,7 +1,7 @@
 Autowiring in Spring
 --------------------
 - Autowiring in Spring is a feature that allows Spring to automatically resolve and inject 
-  dependencies into beans, eliminating hte need for manual configuration.
+  dependencies into beans, eliminating the need for manual configuration.
 - This features promotes cleaner code and enhances the maintainability of applications by
   allowing component to be loosely coupled.
 
