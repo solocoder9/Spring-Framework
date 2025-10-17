@@ -26,7 +26,7 @@ Phases of Bean lifecycle
 ~~~~~~~~~~~~~~~~~~~~~~~
 - After the bean is instantiated, the container performs dependency injection, injecting any 
   required dependencies (other beans, values, etc.) into the newly created bean.
-- This can be done vie:
+- This can be done via:
     ● Constructor Injection: Dependencies are provided through the constructor.
     ● Setter Injection: Dependencies are set through setter methods.
 
