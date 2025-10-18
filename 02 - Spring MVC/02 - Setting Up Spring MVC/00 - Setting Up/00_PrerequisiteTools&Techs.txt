@@ -4,4 +4,7 @@ Prerequisite Tools and Technologies (Softwares)
 2. IDE - Eclipse / IntelliJ IDEA / NetBeans
 3. Build Tool - Maven / Gradle
 4. Database - Mysql (CLI / Workbench)
-5. Server - Apache Tomcat
+5. Server - Apache Tomcat 
+
+(Use Apache Tomcat 9.x because this project uses Spring MVC version 5.3.23, which is built 
+on javax.servlet and is not compatible with Tomcat 10+, which uses jakarta.servlet)
