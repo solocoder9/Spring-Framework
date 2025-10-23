@@ -29,7 +29,7 @@ REST API
     - Use Spring initializr to generate a project with the 'Spring Web' dependency.
 
 2. Define the resource (Entity):
-    - Create a class to represent he resource (e.g., User).
+    - Create a class to represent the resource (e.g., User).
     - Example:
         public class User {
         private Long id;
