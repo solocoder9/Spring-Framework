@@ -1,0 +1,155 @@
+1. What is logging in Java?
+
+Answer:
+Logging is the process of recording runtime information of an application, such as error messages, warnings, or informational messages, into a medium like console, files, or databases. It helps in debugging, monitoring, and troubleshooting applications.
+
+2. Which logging frameworks are used in Java?
+
+Answer:
+
+SLF4J – Logging facade (interface)
+
+Logback – Default Spring Boot engine/framework
+
+Log4j2 – Advanced logging framework
+
+JUL (java.util.logging) – Built-in Java logging (less popular now)
+
+3. Difference between SLF4J and Log4j
+
+Answer:
+
+Feature	SLF4J	Log4j2 / Logback
+Type	Facade / API	Framework / Engine
+Logs directly?	❌ No	✅ Yes
+Switching engines	✅ Yes	❌ No
+Usage	Logger logger = LoggerFactory.getLogger()	Logger logger = LogManager.getLogger()
+4. Which logging framework does Spring Boot use by default?
+
+Answer:
+Spring Boot uses Logback by default and provides SLF4J API for logging. No additional dependency is required for Logback.
+
+5. What are logging levels in Java?
+
+Answer:
+Logging levels indicate the severity of logs:
+
+TRACE < DEBUG < INFO < WARN < ERROR < FATAL
+
+
+Use cases:
+
+TRACE: Very fine-grained information
+
+DEBUG: Debugging messages
+
+INFO: General runtime info
+
+WARN: Potential problems
+
+ERROR: Application errors
+
+FATAL: Critical errors causing shutdown
+
+6. How do you use logging in Spring Boot?
+
+Answer:
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+Logger logger = LoggerFactory.getLogger(MyClass.class);
+logger.info("Info log");
+logger.debug("Debug log");
+logger.error("Error log");
+
+
+You can configure log files via application.properties:
+
+logging.file.name=app.log
+logging.level.root=INFO
+
+7. Difference between Logback and Log4j2
+Feature	Logback	Log4j2
+Default in Spring Boot	✅ Yes	❌ No
+Asynchronous logging	✅ Yes	✅ Yes (more advanced)
+Configuration	XML (logback-spring.xml)	XML (log4j2-spring.xml)
+Performance	High	Very high
+8. How to generate a log file in Spring Boot?
+
+Answer:
+In application.properties:
+
+logging.file.name=logs/app.log
+logging.level.root=INFO
+
+
+Optional advanced: Use logback-spring.xml for rolling files and daily logs.
+
+9. What is the difference between logging framework and logging facade?
+
+Answer:
+
+Logging framework (Logback, Log4j2): Does the actual work — writes logs to files, console, DB.
+
+Logging facade (SLF4J): Interface your code talks to — lets you switch underlying framework without changing code.
+
+10. Why not use Log4j 1.x anymore?
+
+Answer:
+Log4j 1.x is deprecated and has critical security vulnerabilities like Log4Shell. Modern applications use Logback or Log4j2.
+
+11. What is a rolling log file?
+
+Answer:
+A rolling log file automatically creates new log files based on conditions like date or file size.
+Example in logback-spring.xml:
+
+<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+    <fileNamePattern>logs/app-%d{yyyy-MM-dd}.log</fileNamePattern>
+    <maxHistory>10</maxHistory>
+</rollingPolicy>
+
+12. Can you switch logging framework in Spring Boot?
+
+Answer:
+Yes. SLF4J allows switching engines. For example, replacing Logback with Log4j2 requires adding:
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-log4j2</artifactId>
+</dependency>
+
+
+And optionally excluding default Logback.
+
+13. What is the difference between Console logging and File logging?
+
+Answer:
+
+Console logging: Messages appear in terminal/IDE.
+
+File logging: Messages are written to a file (persistent, for production monitoring).
+Spring Boot can log to both simultaneously.
+
+14. What is MDC (Mapped Diagnostic Context)?
+
+Answer:
+MDC allows adding contextual information to logs (like user ID, request ID). Example:
+
+MDC.put("userId", "12345");
+logger.info("User logged in");
+MDC.clear();
+
+
+Output:
+
+2025-10-25 INFO User logged in [userId=12345]
+
+15. Common interview tips for logging
+
+Always say: “I use SLF4J as API and Logback as default engine in Spring Boot.”
+
+Mention optional Log4j2 if advanced logging asked.
+
+Explain log levels, file generation, and rolling logs confidently.
