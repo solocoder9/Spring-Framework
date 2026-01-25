@@ -1,4 +1,4 @@
-# Spring Boot Layered Architecture – Complete & Lifetime Guide
+# Spring Boot Layered Architecture – Complete Guide
 
 > **Purpose**: This document explains *all layers*, *their responsibilities*, and the *end‑to‑end request flow* in a real‑world Spring Boot application. After understanding this, you should never feel confused about project structure, layers, or responsibilities again.
 
@@ -326,6 +326,4 @@ com.company.project
 > "Spring Boot applications follow layered architecture where Controllers handle HTTP, DTOs manage data transfer, Services contain business logic, Repositories manage persistence, Entities represent database tables, and cross‑cutting concerns like Exception handling, Configuration, and Security are handled separately."
 
 ---
-
-**This document is production‑oriented, interview‑ready, and suitable for GitHub documentation.**
 
